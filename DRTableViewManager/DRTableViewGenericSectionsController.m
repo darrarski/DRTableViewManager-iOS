@@ -35,11 +35,19 @@
 
 - (NSInteger)sectionsCount
 {
+    if (_sectionsCountBlock != nil) {
+        return _sectionsCountBlock();
+    }
+
     return [self.sectionsArray count];
 }
 
 - (NSObject<DRTableViewSection> *)sectionAtIndex:(NSInteger)index
 {
+    if (_sectionAtIndexBlock != nil) {
+        return _sectionAtIndexBlock(index);
+    }
+
     return [self.sectionsArray objectAtIndex:index];
 }
 

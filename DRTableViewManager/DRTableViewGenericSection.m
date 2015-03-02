@@ -83,11 +83,19 @@
 
 - (NSInteger)rowsCount
 {
+    if (_rowsCountBlock != nil) {
+        return _rowsCountBlock();
+    }
+
     return [self.rowsArray count];
 }
 
 - (NSObject <DRTableViewRow> *)rowAtIndex:(NSInteger)index
 {
+    if (_rowAtIndexBlock != nil) {
+        return _rowAtIndexBlock(index);
+    }
+
     return [self.rowsArray objectAtIndex:index];
 }
 

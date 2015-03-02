@@ -11,7 +11,8 @@
 
 @interface DRTableViewGenericSection : NSObject <DRTableViewSection>
 
-@property (nonatomic, strong) NSArray<DRTableViewRow> *rowsArray;
+@property (nonatomic, copy) NSInteger (^rowsCountBlock)();
+@property (nonatomic, copy) NSObject <DRTableViewRow> *(^rowAtIndexBlock)(NSInteger index);
 @property (nonatomic, copy) NSString *(^titleForHeaderBlock)();
 @property (nonatomic, copy) NSString *(^titleForFooterBlock)();
 @property (nonatomic, copy) CGFloat (^heightForHeaderBlock)();
@@ -24,6 +25,8 @@
 @property (nonatomic, copy) void (^willDisplayFooterViewBlock)(UIView *view);
 @property (nonatomic, copy) void (^didEndDisplayingHeaderViewBlock)(UIView *view);
 @property (nonatomic, copy) void (^didEndDisplayingFooterViewBlock)(UIView *view);
+
+@property (nonatomic, strong) NSArray<DRTableViewRow> *rowsArray;
 
 + (instancetype)createWithBlock:(void (^)(DRTableViewGenericSection *section))block;
 
