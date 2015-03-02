@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Example1ViewController.h
 //  DRTableViewManagerExample
 //
 //  Created by Dariusz Rybicki on 02/03/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
+@interface Example1ViewController : UITableViewController
 
 
 @end

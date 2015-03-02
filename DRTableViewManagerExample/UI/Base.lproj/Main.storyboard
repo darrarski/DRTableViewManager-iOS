@@ -23,7 +23,7 @@
         <!--Example 1-->
         <scene sceneID="Woq-qX-80c">
             <objects>
-                <tableViewController id="Bn3-RA-uso" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="Bn3-RA-uso" customClass="Example1ViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sek-Mx-Dce">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

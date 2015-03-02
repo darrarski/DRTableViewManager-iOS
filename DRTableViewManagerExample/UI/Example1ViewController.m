@@ -1,24 +1,24 @@
 //
-//  ViewController.m
+//  Example1ViewController.m
 //  DRTableViewManagerExample
 //
 //  Created by Dariusz Rybicki on 02/03/15.
 //  Copyright (c) 2015 Darrarski. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "Example1ViewController.h"
 #import "DRTableViewManager.h"
 #import "DRTableViewGenericSectionsController.h"
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
 
-@interface ViewController ()
+@interface Example1ViewController ()
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 
 @end
 
-@implementation ViewController
+@implementation Example1ViewController
 
 - (void)viewDidLoad
 {
