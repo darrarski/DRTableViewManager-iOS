@@ -96,23 +96,15 @@
                 ];
             }],
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-
-                NSArray *dynamicRows = @[ @"Dynamic row 1",
-                                          @"Dynamic row 2",
-                                          @"Dynamic row 3",
-                                          @"Dynamic row 4",
-                                          @"Dynamic row 5",
-                                          @"Dynamic row 6" ];
-
                 section.titleForHeaderBlock = ^NSString * { return @"Section 3"; };
                 section.heightForHeaderBlock = ^CGFloat { return 30; };
                 section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
-                section.rowsCountBlock = ^NSInteger { return [dynamicRows count]; };
+                section.rowsCountBlock = ^NSInteger { return 10; };
                 section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
                     return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = [dynamicRows objectAtIndex:index];
+                            cell.textLabel.text = [NSString stringWithFormat:@"Dynamic row %ld", (long)index+1];
                             return cell;
                         };
                     }];
