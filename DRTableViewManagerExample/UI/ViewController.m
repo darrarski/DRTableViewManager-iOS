@@ -34,118 +34,90 @@
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         sectionsController.sectionsArray = (NSArray<DRTableViewSection> *)@[
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 0 Header"; };
+                section.titleForHeaderBlock = ^NSString * { return @"Section 1"; };
                 section.heightForHeaderBlock = ^CGFloat { return 30; };
                 section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
-                section.titleForFooterBlock = ^NSString * { return @"Section 0 Footer"; };
-                section.heightForFooterBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForFooterBlock = ^CGFloat {return 30; };
                 section.rowsArray = (NSArray<DRTableViewRow> *)@[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S0 R0";
+                            cell.textLabel.text = @"Static row 1";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S0 R1";
+                            cell.textLabel.text = @"Static row 2";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S0 R2";
+                            cell.textLabel.text = @"Static row 3";
                             return cell;
                         };
                     }]
                 ];
             }],
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 1 Header"; };
+                section.titleForHeaderBlock = ^NSString * { return @"Section 2"; };
                 section.heightForHeaderBlock = ^CGFloat { return 30; };
                 section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
-                section.titleForFooterBlock = ^NSString * { return @"Section 1 Footer"; };
-                section.heightForFooterBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForFooterBlock = ^CGFloat {return 30; };
                 section.rowsArray = (NSArray<DRTableViewRow> *)@[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S1 R0";
+                            cell.textLabel.text = @"Static row 4";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S1 R1";
+                            cell.textLabel.text = @"Static row 5";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S1 R2";
+                            cell.textLabel.text = @"Static row 6";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S1 R3";
+                            cell.textLabel.text = @"Static row 7";
                             return cell;
                         };
                     }]
                 ];
             }],
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 2 Header"; };
+
+                NSArray *dynamicRows = @[ @"Dynamic row 1",
+                                          @"Dynamic row 2",
+                                          @"Dynamic row 3",
+                                          @"Dynamic row 4",
+                                          @"Dynamic row 5",
+                                          @"Dynamic row 6" ];
+
+                section.titleForHeaderBlock = ^NSString * { return @"Section 3"; };
                 section.heightForHeaderBlock = ^CGFloat { return 30; };
                 section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
-                section.titleForFooterBlock = ^NSString * { return @"Section 2 Footer"; };
-                section.heightForFooterBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForFooterBlock = ^CGFloat {return 30; };
-                section.rowsArray = (NSArray<DRTableViewRow> *)@[
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                section.rowsCountBlock = ^NSInteger { return [dynamicRows count]; };
+                section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
+                    return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.cellBlock = ^UITableViewCell * {
                             UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S2 R0";
+                            cell.textLabel.text = [dynamicRows objectAtIndex:index];
                             return cell;
                         };
-                    }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
-                        row.cellBlock = ^UITableViewCell * {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S2 R1";
-                            return cell;
-                        };
-                    }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
-                        row.cellBlock = ^UITableViewCell * {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S2 R2";
-                            return cell;
-                        };
-                    }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
-                        row.cellBlock = ^UITableViewCell * {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S2 R3";
-                            return cell;
-                        };
-                    }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
-                        row.cellBlock = ^UITableViewCell * {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
-                            cell.textLabel.text = @"S2 R4";
-                            return cell;
-                        };
-                    }]
-                ];
+                    }];
+                };
             }]
         ];
 
