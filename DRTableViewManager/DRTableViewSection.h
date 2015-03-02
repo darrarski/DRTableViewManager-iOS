@@ -14,22 +14,25 @@
 
 @required
 
-- (NSInteger)rowsCount;
 - (NSObject<DRTableViewRow> *)rowAtIndex:(NSInteger)index;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
 @optional
 
-- (NSString *)titleForHeader;
-- (NSString *)titleForFooter;
-- (CGFloat)heightForHeader;
-- (CGFloat)heightForFooter;
-- (CGFloat)estimatedHeightForHeader;
-- (CGFloat)estimatedHeightForFooter;
-- (UIView *)viewForHeader;
-- (UIView *)viewForFooter;
-- (void)willDisplayHeaderView:(UIView *)view;
-- (void)willDisplayFooterView:(UIView *)view;
-- (void)didEndDisplayingHeaderView:(UIView *)view;
-- (void)didEndDisplayingFooterView:(UIView *)view;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView;
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0);
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0);
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0);
+- (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0);
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section NS_AVAILABLE_IOS(7_0);
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section NS_AVAILABLE_IOS(7_0);
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
 
 @end

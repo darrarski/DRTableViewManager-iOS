@@ -20,11 +20,11 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    if (aSelector == @selector(sectionIndexTitles) && _sectionIndexTitlesBlock == nil) {
+    if (aSelector == @selector(sectionIndexTitlesForTableView:) && _sectionIndexTitlesForTableViewBlock == nil) {
         return NO;
     }
 
-    if (aSelector == @selector(sectionForSectionIndexTitle:atIndex:) && _sectionForSectionIndexTitleAtIndexBlock == nil) {
+    if (aSelector == @selector(tableView:sectionForSectionIndexTitle:atIndex:) && _tableViewSectionForSectionIndexTitleAtIndexBlock == nil) {
         return NO;
     }
 
@@ -51,14 +51,22 @@
     return [self.sectionsArray objectAtIndex:index];
 }
 
-- (NSArray *)sectionIndexTitles
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    return _sectionIndexTitlesBlock();
+    if (_sectionIndexTitlesForTableViewBlock) {
+        return _sectionIndexTitlesForTableViewBlock(tableView);
+    }
+    
+    return nil;
 }
 
-- (NSInteger)sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    return _sectionForSectionIndexTitleAtIndexBlock(title, index);
+    if (_tableViewSectionForSectionIndexTitleAtIndexBlock) {
+        return _tableViewSectionForSectionIndexTitleAtIndexBlock(tableView, title, index);
+    }
+    
+    return 0;
 }
 
 @end

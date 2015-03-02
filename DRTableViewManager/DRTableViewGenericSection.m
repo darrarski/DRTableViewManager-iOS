@@ -28,51 +28,51 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    if (aSelector == @selector(titleForHeader) && _titleForHeaderBlock == nil) {
+    if (aSelector == @selector(tableView:titleForHeaderInSection:) && _tableViewTitleForHeaderInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(titleForFooter) && _titleForFooterBlock == nil) {
+    if (aSelector == @selector(tableView:titleForFooterInSection:) && _tableViewTitleForFooterInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(heightForHeader) && _heightForHeaderBlock == nil) {
+    if (aSelector == @selector(tableView:heightForHeaderInSection:) && _tableViewHeightForHeaderInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(heightForFooter) && _heightForFooterBlock == nil) {
+    if (aSelector == @selector(tableView:heightForFooterInSection:) && _tableViewHeightForFooterInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(estimatedHeightForHeader) && _estimatedHeightForHeaderBlock == nil) {
+    if (aSelector == @selector(tableView:estimatedHeightForHeaderInSection:) && _tableViewEstimatedHeightForHeaderInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(estimatedHeightForFooter) && _estimatedHeightForFooterBlock == nil) {
+    if (aSelector == @selector(tableView:estimatedHeightForFooterInSection:) && _tableViewEstimatedHeightForFooterInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(viewForHeader) && _viewForHeaderBlock == nil) {
+    if (aSelector == @selector(tableView:viewForHeaderInSection:) && _tableViewViewForHeaderInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(viewForFooter) && _viewForFooterBlock == nil) {
+    if (aSelector == @selector(tableView:viewForFooterInSection:) && _tableViewViewForFooterInSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willDisplayHeaderView:) && _willDisplayHeaderViewBlock == nil) {
+    if (aSelector == @selector(tableView:willDisplayHeaderView:forSection:) && _tableViewWillDisplayHeaderViewForSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willDisplayFooterView:) && _willDisplayFooterViewBlock == nil) {
+    if (aSelector == @selector(tableView:willDisplayFooterView:forSection:) && _tableViewWillDisplayFooterViewForSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didEndDisplayingHeaderView:) && _didEndDisplayingHeaderViewBlock == nil) {
+    if (aSelector == @selector(tableView:didEndDisplayingHeaderView:forSection:) && _tableViewDidEndDisplayingHeaderViewForSectionBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didEndDisplayingFooterView:) && _didEndDisplayingFooterViewBlock == nil) {
+    if (aSelector == @selector(tableView:didEndDisplayingFooterView:forSection:) && _tableViewDidEndDisplayingFooterViewForSectionBlock == nil) {
         return NO;
     }
     
@@ -81,12 +81,12 @@
 
 #pragma mark - DRTableViewSection
 
-- (NSInteger)rowsCount
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_rowsCountBlock != nil) {
-        return _rowsCountBlock();
+    if (_tableViewNumberOfRowsInSectionBlock != nil) {
+        return _tableViewNumberOfRowsInSectionBlock(tableView, section);
     }
-
+    
     return [self.rowsArray count];
 }
 
@@ -99,62 +99,64 @@
     return [self.rowsArray objectAtIndex:index];
 }
 
-- (NSString *)titleForHeader
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return _titleForHeaderBlock();
+    return _tableViewTitleForHeaderInSectionBlock(tableView, section);
 }
 
-- (NSString *)titleForFooter
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    return _titleForFooterBlock();
+    return _tableViewTitleForFooterInSectionBlock(tableView, section);
 }
 
-- (CGFloat)heightForHeader {
-    return _heightForHeaderBlock();
-}
-
-- (CGFloat)heightForFooter {
-    return _heightForFooterBlock();
-}
-
-- (CGFloat)estimatedHeightForHeader
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return _estimatedHeightForHeaderBlock();
+    return _tableViewHeightForHeaderInSectionBlock(tableView, section);
 }
 
-- (CGFloat)estimatedHeightForFooter
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return _estimatedHeightForFooterBlock();
+    return _tableViewHeightForFooterInSectionBlock(tableView, section);
 }
 
-- (UIView *)viewForHeader
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
-    return _viewForHeaderBlock();
+    return _tableViewEstimatedHeightForHeaderInSectionBlock(tableView, section);
 }
 
-- (UIView *)viewForFooter
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
 {
-    return _viewForFooterBlock();
+    return _tableViewEstimatedHeightForFooterInSectionBlock(tableView, section);
 }
 
-- (void)willDisplayHeaderView:(UIView *)view
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    _willDisplayHeaderViewBlock(view);
+    return _tableViewViewForHeaderInSectionBlock(tableView, section);
 }
 
-- (void)willDisplayFooterView:(UIView *)view
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    _willDisplayFooterViewBlock(view);
+    return _tableViewViewForFooterInSectionBlock(tableView, section);
 }
 
-- (void)didEndDisplayingHeaderView:(UIView *)view
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
-    _didEndDisplayingHeaderViewBlock(view);
+    _tableViewWillDisplayHeaderViewForSectionBlock(tableView, view, section);
 }
 
-- (void)didEndDisplayingFooterView:(UIView *)view
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
-    _didEndDisplayingFooterViewBlock(view);
+    _tableViewWillDisplayFooterViewForSectionBlock(tableView, view, section);
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    _tableViewDidEndDisplayingHeaderViewForSectionBlock(tableView, view, section);
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section
+{
+    _tableViewDidEndDisplayingFooterViewForSectionBlock(tableView, view, section);
 }
 
 @end

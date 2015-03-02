@@ -13,8 +13,8 @@
 
 @property (nonatomic, copy) NSInteger (^sectionsCountBlock)();
 @property (nonatomic, copy) NSObject<DRTableViewSection> *(^sectionAtIndexBlock)(NSInteger index);
-@property (nonatomic, copy) NSArray *(^sectionIndexTitlesBlock)();
-@property (nonatomic, copy) NSInteger (^sectionForSectionIndexTitleAtIndexBlock)(NSString *title, NSInteger index);
+@property (nonatomic, copy) NSArray *(^sectionIndexTitlesForTableViewBlock)(UITableView *tableView);
+@property (nonatomic, copy) NSInteger (^tableViewSectionForSectionIndexTitleAtIndexBlock)(UITableView *tableView, NSString *title, NSInteger index);
 
 @property (nonatomic, strong) NSArray<DRTableViewSection> *sectionsArray;
 

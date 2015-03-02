@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Darrarski. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol DRTableViewSection;
 
@@ -19,7 +19,7 @@
 
 @optional
 
-- (NSArray *)sectionIndexTitles;
-- (NSInteger)sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView;
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
 
 @end

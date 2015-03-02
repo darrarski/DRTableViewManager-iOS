@@ -19,111 +19,111 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    if (aSelector == @selector(height) && _heightBlock == nil) {
+    if (aSelector == @selector(tableView:heightForRowAtIndexPath:) && _tableViewHeightForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(estimatedHeight) && _editingStyleBlock == nil) {
+    if (aSelector == @selector(tableView:estimatedHeightForRowAtIndexPath:) && _tableViewEstimatedHeightForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(accessoryButtonTapped) && _accessoryButtonTappedBlock == nil) {
+    if (aSelector == @selector(tableView:accessoryButtonTappedForRowWithIndexPath:) && _tableViewAccessoryButtonTappedForRowWithIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(shouldHighlight) && _shouldHighlightBlock == nil) {
+    if (aSelector == @selector(tableView:shouldHighlightRowAtIndexPath:) && _tableViewShouldHighlightRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didHighlight) && _didHighlightBlock == nil) {
+    if (aSelector == @selector(tableView:didHighlightRowAtIndexPath:) && _tableViewDidHighlightRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didUnhighlight) && _didUnhighlightBlock == nil) {
+    if (aSelector == @selector(tableView:didUnhighlightRowAtIndexPath:) && _tableViewDidUnhighlightRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willSelect) && _willSelectBlock == nil) {
+    if (aSelector == @selector(tableView:willSelectRowAtIndexPath:) && _tableViewWillSelectRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willDeselect) && _willDeselectBlock == nil) {
+    if (aSelector == @selector(tableView:willDeselectRowAtIndexPath:) && _tableViewWillDeselectRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didSelect) && _didSelectBlock == nil) {
+    if (aSelector == @selector(tableView:didSelectRowAtIndexPath:) && _tableViewDidSelectRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didDeselect) && _didDeselectBlock == nil) {
+    if (aSelector == @selector(tableView:didDeselectRowAtIndexPath:) && _tableViewDidDeselectRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(canBeEdited) && _canBeEditedBlock == nil) {
+    if (aSelector == @selector(tableView:canEditRowAtIndexPath:) && _tableViewCanEditRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(canBeMoved) && _canBeMovedBlock == nil) {
+    if (aSelector == @selector(tableView:canMoveRowAtIndexPath:) && _tableViewCanMoveRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(moveToIndexPath:) && _moveToIndexPathBlock == nil) {
+    if (aSelector == @selector(tableView:moveRowAtIndexPath:toIndexPath:) && _tableViewMoveRowAtIndexPathToIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(editingStyle) && _editingStyleBlock == nil) {
+    if (aSelector == @selector(tableView:editingStyleForRowAtIndexPath:) && _tableViewEditingStyleForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(titleForDeleteConfirmationButton) && _titleForDeleteConfirmationButtonBlock == nil) {
+    if (aSelector == @selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:) && _tableViewTitleForDeleteConfirmationButtonForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(editAction) && _editActionsBlock == nil) {
+    if (aSelector == @selector(tableView:editActionsForRowAtIndexPath:) && _tableViewEditActionsForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(shouldIndentWhileEditing) && _shouldIndentWhileEditingBlock == nil) {
+    if (aSelector == @selector(tableView:shouldIndentWhileEditingRowAtIndexPath:) && _tableViewShouldIndentWhileEditingRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willBeginEditing) && _willBeginEditingBlock == nil) {
+    if (aSelector == @selector(tableView:willBeginEditingRowAtIndexPath:) && _tableViewWillBeginEditingRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didEndEditing) && _didEndEditingBlock == nil) {
+    if (aSelector == @selector(tableView:didEndEditingRowAtIndexPath:) && _tableViewDidEndEditingRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(indentationLevel) && _indentationLevelBlock == nil) {
+    if (aSelector == @selector(tableView:indentationLevelForRowAtIndexPath:) && _tableViewIndentationLevelForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(shouldShowMenu) && _shouldShowMenuBlock == nil) {
+    if (aSelector == @selector(tableView:shouldShowMenuForRowAtIndexPath:) && _tableViewShouldShowMenuForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(canPerformAction:withSender:) && _canPerformActionWithSenderBlock == nil) {
+    if (aSelector == @selector(tableView:canPerformAction:forRowAtIndexPath:withSender:) && _tableViewCanPerformActionForRowAtIndexPathWithSenderBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(performAction:withSender:) && _performActionWithSenderBlock == nil) {
+    if (aSelector == @selector(tableView:performAction:forRowAtIndexPath:withSender:) && _tableViewPerformActionForRowAtIndexPathWithSenderBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(targetIndexPathForMoveToProposedIndexPath:) && _targetIndexPathForMoveToProposedIndexPathBlock == nil) {
+    if (aSelector == @selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:) && _tableViewTargetIndexPathForMoveFromRowAtIndexPathToProposedIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(willDisplayCell:) && _willDisplayCellBlock == nil) {
+    if (aSelector == @selector(tableView:willDisplayCell:forRowAtIndexPath:) && _tableViewWillDisplayCellForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(didEndDisplayingCell:) && _didEndDisplayingCellBlock == nil) {
+    if (aSelector == @selector(tableView:didEndDisplayingCell:forRowAtIndexPath:) && _tableViewDidEndDisplayingCellForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
-    if (aSelector == @selector(commitEditingStyle:) && _commitEditingStyleBlock == nil) {
+    if (aSelector == @selector(tableView:commitEditingStyle:forRowAtIndexPath:) && _tableViewCommitEditingStyleForRowAtIndexPathBlock == nil) {
         return NO;
     }
     
@@ -137,139 +137,144 @@
     return _tableViewCellForIndexPathBlock(tableView, indexPath);
 }
 
-- (CGFloat)height
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _heightBlock();
+    return _tableViewCanEditRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (CGFloat)estimatedHeight
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _estimatedHeightBlock();
+    return _tableViewCanMoveRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)accessoryButtonTapped
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _accessoryButtonTappedBlock();
+    _tableViewCommitEditingStyleForRowAtIndexPathBlock(tableView, editingStyle, indexPath);
 }
 
-- (BOOL)shouldHighlight
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    return _shouldHighlightBlock();
+    _tableViewMoveRowAtIndexPathToIndexPathBlock(tableView, sourceIndexPath, destinationIndexPath);
 }
 
-- (void)didHighlight
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _didHighlightBlock();
+    _tableViewWillDisplayCellForRowAtIndexPathBlock(tableView, cell, indexPath);
 }
 
-- (void)didUnhighlight
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    _didUnhighlightBlock();
+    _tableViewDidEndDisplayingCellForRowAtIndexPathBlock(tableView, cell, indexPath);
 }
 
-- (NSIndexPath *)willSelect
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _willSelectBlock();
+    return _tableViewHeightForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (NSIndexPath *)willDeselect
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _willDeselectBlock();
+    return _tableViewEstimatedHeightForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)didSelect
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    _didSelectBlock();
+    return _tableViewAccessoryTypeForRowWithIndexPathBlock(tableView, indexPath);
 }
 
-- (void)didDeselect
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    _didDeselectBlock();
+    _tableViewAccessoryButtonTappedForRowWithIndexPathBlock(tableView, indexPath);
 }
 
-- (BOOL)canBeEdited
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _canBeEditedBlock();
+    return _tableViewShouldHighlightRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (BOOL)canBeMoved
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _canBeMovedBlock();
+    _tableViewDidHighlightRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)moveToIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _moveToIndexPathBlock(indexPath);
+    _tableViewDidUnhighlightRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (UITableViewCellEditingStyle)editingStyle
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _editingStyleBlock();
+    return _tableViewWillSelectRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (NSString *)titleForDeleteConfirmationButton
+- (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _titleForDeleteConfirmationButtonBlock();
+    return _tableViewWillDeselectRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (NSArray *)editActions
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _editActionsBlock();
+    _tableViewDidSelectRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (BOOL)shouldIndentWhileEditing
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _shouldIndentWhileEditingBlock();
+    _tableViewDidDeselectRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)willBeginEditing
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _willBeginEditingBlock();
+    return _tableViewEditingStyleForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)didEndEditing
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _didEndEditingBlock();
+    return _tableViewTitleForDeleteConfirmationButtonForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (NSInteger)indentationLevel
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _indentationLevelBlock();
+    return _tableViewEditActionsForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (BOOL)shouldShowMenu
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _shouldShowMenuBlock();
+    return _tableViewShouldIndentWhileEditingRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+- (void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _canPerformActionWithSenderBlock(action, sender);
+    _tableViewWillBeginEditingRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)performAction:(SEL)action withSender:(id)sender
+- (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _performActionWithSenderBlock(action, sender);
+    _tableViewDidEndEditingRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (NSIndexPath *)targetIndexPathForMoveToProposedIndexPath:(NSIndexPath *)indexPath
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    return _targetIndexPathForMoveToProposedIndexPathBlock(indexPath);
+    return _tableViewTargetIndexPathForMoveFromRowAtIndexPathToProposedIndexPathBlock(tableView, sourceIndexPath, proposedDestinationIndexPath);
 }
 
-- (void)willDisplayCell:(UITableViewCell *)cell
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _willDisplayCellBlock(cell);
+    return _tableViewIndentationLevelForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)didEndDisplayingCell:(UITableViewCell *)cell
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _didEndDisplayingCellBlock(cell);
+    return _tableViewShouldShowMenuForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (void)commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    _commitEditingStyleBlock(editingStyle);
+    return _tableViewCanPerformActionForRowAtIndexPathWithSenderBlock(tableView, action, indexPath, sender);
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    _tableViewPerformActionForRowAtIndexPathWithSenderBlock(tableView, action, indexPath, sender);
 }
 
 @end

@@ -11,20 +11,21 @@
 
 @interface DRTableViewGenericSection : NSObject <DRTableViewSection>
 
-@property (nonatomic, copy) NSInteger (^rowsCountBlock)();
 @property (nonatomic, copy) NSObject <DRTableViewRow> *(^rowAtIndexBlock)(NSInteger index);
-@property (nonatomic, copy) NSString *(^titleForHeaderBlock)();
-@property (nonatomic, copy) NSString *(^titleForFooterBlock)();
-@property (nonatomic, copy) CGFloat (^heightForHeaderBlock)();
-@property (nonatomic, copy) CGFloat (^heightForFooterBlock)();
-@property (nonatomic, copy) CGFloat (^estimatedHeightForHeaderBlock)();
-@property (nonatomic, copy) CGFloat (^estimatedHeightForFooterBlock)();
-@property (nonatomic, copy) UIView *(^viewForHeaderBlock)();
-@property (nonatomic, copy) UIView *(^viewForFooterBlock)();
-@property (nonatomic, copy) void (^willDisplayHeaderViewBlock)(UIView *view);
-@property (nonatomic, copy) void (^willDisplayFooterViewBlock)(UIView *view);
-@property (nonatomic, copy) void (^didEndDisplayingHeaderViewBlock)(UIView *view);
-@property (nonatomic, copy) void (^didEndDisplayingFooterViewBlock)(UIView *view);
+
+@property (nonatomic, copy) NSInteger (^tableViewNumberOfRowsInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) NSString *(^tableViewTitleForHeaderInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) NSString *(^tableViewTitleForFooterInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) CGFloat (^tableViewHeightForHeaderInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) CGFloat (^tableViewHeightForFooterInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) CGFloat (^tableViewEstimatedHeightForHeaderInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) CGFloat (^tableViewEstimatedHeightForFooterInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) UIView *(^tableViewViewForHeaderInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) UIView *(^tableViewViewForFooterInSectionBlock)(UITableView *tableView, NSInteger section);
+@property (nonatomic, copy) void (^tableViewWillDisplayHeaderViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
+@property (nonatomic, copy) void (^tableViewWillDisplayFooterViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
+@property (nonatomic, copy) void (^tableViewDidEndDisplayingHeaderViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
+@property (nonatomic, copy) void (^tableViewDidEndDisplayingFooterViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
 
 @property (nonatomic, strong) NSArray<DRTableViewRow> *rowsArray;
 

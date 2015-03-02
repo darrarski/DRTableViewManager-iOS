@@ -42,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.sectionsController sectionAtIndex:section] rowsCount];
+    return [[self.sectionsController sectionAtIndex:section] tableView:tableView numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,8 +53,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(titleForHeader)]) {
-        return [sectionObject titleForHeader];
+    if ([sectionObject respondsToSelector:@selector(tableView:titleForHeaderInSection:)]) {
+        return [sectionObject tableView:tableView titleForHeaderInSection:section];
     }
     
     return nil;
@@ -63,8 +63,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(titleForFooter)]) {
-        return [sectionObject titleForFooter];
+    if ([sectionObject respondsToSelector:@selector(tableView:titleForFooterInSection:)]) {
+        return [sectionObject tableView:tableView titleForFooterInSection:section];
     }
     
     return nil;
@@ -74,8 +74,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(canBeEdited)]) {
-        return [row canBeEdited];
+    if ([row respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
+        return [row tableView:tableView canEditRowAtIndexPath:indexPath];
     }
     
     return NO;
@@ -85,8 +85,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(canBeMoved)]) {
-        return [row canBeMoved];
+    if ([row respondsToSelector:@selector(tableView:canMoveRowAtIndexPath:)]) {
+        return [row tableView:tableView canMoveRowAtIndexPath:indexPath];
     }
     
     return NO;
@@ -94,8 +94,8 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    if ([self.sectionsController respondsToSelector:@selector(sectionIndexTitles)]) {
-        return [self.sectionsController sectionIndexTitles];
+    if ([self.sectionsController respondsToSelector:@selector(sectionIndexTitlesForTableView:)]) {
+        return [self.sectionsController sectionIndexTitlesForTableView:tableView];
     }
     
     return nil;
@@ -103,8 +103,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    if ([self.sectionsController respondsToSelector:@selector(sectionForSectionIndexTitle:atIndex:)]) {
-        return [self.sectionsController sectionForSectionIndexTitle:title atIndex:index];
+    if ([self.sectionsController respondsToSelector:@selector(tableView:sectionForSectionIndexTitle:atIndex:)]) {
+        return [self.sectionsController tableView:tableView sectionForSectionIndexTitle:title atIndex:index];
     }
     
     return 0;
@@ -114,8 +114,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(commitEditingStyle:)]) {
-        [row commitEditingStyle:editingStyle];
+    if ([row respondsToSelector:@selector(tableView:commitEditingStyle:forRowAtIndexPath:)]) {
+        [row tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
     }
 }
 
@@ -123,8 +123,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:sourceIndexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:sourceIndexPath.row];
-    if ([row respondsToSelector:@selector(moveToIndexPath:)]) {
-        [row moveToIndexPath:destinationIndexPath];
+    if ([row respondsToSelector:@selector(tableView:moveRowAtIndexPath:toIndexPath:)]) {
+        [row tableView:tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
     }
 }
 
@@ -134,24 +134,24 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(willDisplayCell:)]) {
-        [row willDisplayCell:cell];
+    if ([row respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]) {
+        [row tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(willDisplayHeaderView:)]) {
-        [sectionObject willDisplayHeaderView:view];
+    if ([sectionObject respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)]) {
+        [sectionObject tableView:tableView willDisplayHeaderView:view forSection:section];
     }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(willDisplayFooterView:)]) {
-        [sectionObject willDisplayFooterView:view];
+    if ([sectionObject respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)]) {
+        [sectionObject tableView:tableView willDisplayFooterView:view forSection:section];
     }
 }
 
@@ -159,24 +159,24 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didEndDisplayingCell:)]) {
-        [row didEndDisplayingCell:cell];
+    if ([row respondsToSelector:@selector(tableView:didEndDisplayingCell:forRowAtIndexPath:)]) {
+        [row tableView:tableView didEndDisplayingCell:cell forRowAtIndexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(didEndDisplayingHeaderView:)]) {
-        [sectionObject didEndDisplayingHeaderView:view];
+    if ([sectionObject respondsToSelector:@selector(tableView:didEndDisplayingHeaderView:forSection:)]) {
+        [sectionObject tableView:tableView didEndDisplayingHeaderView:view forSection:section];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(didEndDisplayingFooterView:)]) {
-        [sectionObject didEndDisplayingFooterView:view];
+    if ([sectionObject respondsToSelector:@selector(tableView:didEndDisplayingFooterView:forSection:)]) {
+        [sectionObject tableView:tableView didEndDisplayingHeaderView:view forSection:section];
     }
 }
 
@@ -184,8 +184,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(height)]) {
-        return [row height];
+    if ([row respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)]) {
+        return [row tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
     }
     
     return tableView.rowHeight;
@@ -194,8 +194,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(heightForHeader)]) {
-        return [sectionObject heightForHeader];
+    if ([sectionObject respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+        return [sectionObject tableView:tableView heightForHeaderInSection:section];
     }
     
     return tableView.sectionHeaderHeight;
@@ -204,8 +204,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(heightForFooter)]) {
-        return [sectionObject heightForFooter];
+    if ([sectionObject respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)]) {
+        return [sectionObject tableView:tableView heightForFooterInSection:section];
     }
     
     return tableView.sectionFooterHeight;
@@ -215,8 +215,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(estimatedHeight)]) {
-        return [row estimatedHeight];
+    if ([row respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)]) {
+        return [row tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
     }
     
     return tableView.estimatedRowHeight;
@@ -225,8 +225,8 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(estimatedHeightForHeader)]) {
-        return [sectionObject estimatedHeightForHeader];
+    if ([sectionObject respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)]) {
+        return [sectionObject tableView:tableView estimatedHeightForHeaderInSection:section];
     }
     
     return tableView.estimatedSectionHeaderHeight;
@@ -235,8 +235,8 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(estimatedHeightForFooter)]) {
-        return [sectionObject estimatedHeightForFooter];
+    if ([sectionObject respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)]) {
+        return [sectionObject tableView:tableView estimatedHeightForFooterInSection:section];
     }
     
     return tableView.estimatedSectionFooterHeight;
@@ -245,8 +245,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(viewForHeader)]) {
-        return [sectionObject viewForHeader];
+    if ([sectionObject respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
+        return [sectionObject tableView:tableView viewForHeaderInSection:section];
     }
     
     return nil;
@@ -255,8 +255,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     NSObject<DRTableViewSection> *sectionObject = [self.sectionsController sectionAtIndex:section];
-    if ([sectionObject respondsToSelector:@selector(viewForFooter)]) {
-        return [sectionObject viewForFooter];
+    if ([sectionObject respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
+        return [sectionObject tableView:tableView viewForFooterInSection:section];
     }
     
     return nil;
@@ -266,8 +266,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(accessoryButtonTapped)]) {
-        [row accessoryButtonTapped];
+    if ([row respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)]) {
+        [row tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
     }
 }
 
@@ -275,8 +275,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(shouldHighlight)]) {
-        return [row shouldHighlight];
+    if ([row respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)]) {
+        return [row tableView:tableView shouldHighlightRowAtIndexPath:indexPath];
     }
     
     return YES;
@@ -286,8 +286,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didHighlight)]) {
-        [row didHighlight];
+    if ([row respondsToSelector:@selector(tableView:didHighlightRowAtIndexPath:)]) {
+        [row tableView:tableView didHighlightRowAtIndexPath:indexPath];
     }
 }
 
@@ -295,8 +295,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didUnhighlight)]) {
-        [row didUnhighlight];
+    if ([row respondsToSelector:@selector(tableView:didUnhighlightRowAtIndexPath:)]) {
+        [row tableView:tableView didUnhighlightRowAtIndexPath:indexPath];
     }
 }
 
@@ -304,8 +304,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(willSelect)]) {
-        return [row willSelect];
+    if ([row respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
+        return [row tableView:tableView willSelectRowAtIndexPath:indexPath];
     }
     
     return indexPath;
@@ -315,8 +315,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(willDeselect)]) {
-        return [row willDeselect];
+    if ([row respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)]) {
+        return [row tableView:tableView willDeselectRowAtIndexPath:indexPath];
     }
     
     return indexPath;
@@ -326,8 +326,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didSelect)]) {
-        [row didSelect];
+    if ([row respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [row tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
 
@@ -335,8 +335,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didDeselect)]) {
-        [row didDeselect];
+    if ([row respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
+        [row tableView:tableView didDeselectRowAtIndexPath:indexPath];
     }
 }
 
@@ -344,8 +344,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(editingStyle)]) {
-        return [row editingStyle];
+    if ([row respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)]) {
+        return [row tableView:tableView editingStyleForRowAtIndexPath:indexPath];
     }
     
     return UITableViewCellEditingStyleDelete;
@@ -355,8 +355,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(titleForDeleteConfirmationButton)]) {
-        return [row titleForDeleteConfirmationButton];
+    if ([row respondsToSelector:@selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)]) {
+        return [row tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
     }
     
     return nil;
@@ -366,8 +366,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(editAction)]) {
-        return [row editActions];
+    if ([row respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
+        return [row tableView:tableView editActionsForRowAtIndexPath:indexPath];
     }
     
     return nil;
@@ -377,8 +377,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(shouldIndentWhileEditing)]) {
-        return [row shouldIndentWhileEditing];
+    if ([row respondsToSelector:@selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)]) {
+        return [row tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];
     }
     
     return NO;
@@ -388,8 +388,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(willBeginEditing)]) {
-        return [row willBeginEditing];
+    if ([row respondsToSelector:@selector(tableView:willBeginEditingRowAtIndexPath:)]) {
+        return [row tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
     }
 }
 
@@ -397,8 +397,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(didEndEditing)]) {
-        return [row didEndEditing];
+    if ([row respondsToSelector:@selector(tableView:didEndEditingRowAtIndexPath:)]) {
+        return [row tableView:tableView didEndEditingRowAtIndexPath:indexPath];
     }
 }
 
@@ -406,8 +406,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:sourceIndexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:sourceIndexPath.row];
-    if ([row respondsToSelector:@selector(targetIndexPathForMoveToProposedIndexPath:)]) {
-        return [row targetIndexPathForMoveToProposedIndexPath:proposedDestinationIndexPath];
+    if ([row respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)]) {
+        return [row tableView:tableView targetIndexPathForMoveFromRowAtIndexPath:sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
     }
     
     return nil;
@@ -417,8 +417,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(indentationLevel)]) {
-        return [row indentationLevel];
+    if ([row respondsToSelector:@selector(tableView:indentationLevelForRowAtIndexPath:)]) {
+        return [row tableView:tableView indentationLevelForRowAtIndexPath:indexPath];
     }
     
     return 0;
@@ -428,8 +428,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(shouldShowMenu)]) {
-        return [row shouldShowMenu];
+    if ([row respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)]) {
+        return [row tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
     }
     
     return NO;
@@ -439,8 +439,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(canPerformAction:withSender:)]) {
-        return [row canPerformAction:action withSender:sender];
+    if ([row respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)]) {
+        return [row tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
     }
     
     return NO;
@@ -450,8 +450,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(performAction:withSender:)]) {
-        [row performAction:action withSender:sender];
+    if ([row respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)]) {
+        [row tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
     }
 }
 

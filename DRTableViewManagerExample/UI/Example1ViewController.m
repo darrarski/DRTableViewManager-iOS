@@ -24,6 +24,7 @@
 {
     [super viewDidLoad];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableViewManager registerInTableView:self.tableView];
 }
 
@@ -33,27 +34,33 @@
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         sectionsController.sectionsArray = (NSArray<DRTableViewSection> *)@[
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 1"; };
-                section.heightForHeaderBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
+                section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger section) {
+                    return @"Section 1";
+                };
+                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
+                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
                 section.rowsArray = (NSArray<DRTableViewRow> *)@[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 1";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 2";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 3";
                             return cell;
                         };
@@ -61,34 +68,40 @@
                 ];
             }],
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 2"; };
-                section.heightForHeaderBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
+                section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger section) {
+                    return @"Section 2";
+                };
+                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
+                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
                 section.rowsArray = (NSArray<DRTableViewRow> *)@[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 4";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 5";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 6";
                             return cell;
                         };
                     }],
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 7";
                             return cell;
                         };
@@ -96,14 +109,22 @@
                 ];
             }],
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
-                section.titleForHeaderBlock = ^NSString * { return @"Section 3"; };
-                section.heightForHeaderBlock = ^CGFloat { return 30; };
-                section.estimatedHeightForHeaderBlock = ^CGFloat { return 30; };
-                section.rowsCountBlock = ^NSInteger { return 10; };
+                section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger section) {
+                    return @"Section 3";
+                };
+                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
+                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+                    return 30;
+                };
+                section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
+                    return 10;
+                };
                 section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
                     return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [[UITableViewCell alloc] init];
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = [NSString stringWithFormat:@"Dynamic row (%ld.%ld)", (long)indexPath.section+1, (long)indexPath.row+1];
                             return cell;
                         };
