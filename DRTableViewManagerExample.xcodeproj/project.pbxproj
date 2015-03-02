@@ -14,6 +14,7 @@
 		3182D6631AA4B766007F2C51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3182D6621AA4B766007F2C51 /* Images.xcassets */; };
 		3182D6661AA4B766007F2C51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3182D6641AA4B766007F2C51 /* LaunchScreen.xib */; };
 		3182D6721AA4B766007F2C51 /* DRTableViewManagerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6711AA4B766007F2C51 /* DRTableViewManagerExampleTests.m */; };
+		3182D6811AA4BA39007F2C51 /* DRTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6801AA4BA39007F2C51 /* DRTableViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		3182D66B1AA4B766007F2C51 /* DRTableViewManagerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRTableViewManagerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3182D6701AA4B766007F2C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3182D6711AA4B766007F2C51 /* DRTableViewManagerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRTableViewManagerExampleTests.m; sourceTree = "<group>"; };
+		3182D67F1AA4BA39007F2C51 /* DRTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTableViewManager.h; sourceTree = "<group>"; };
+		3182D6801AA4BA39007F2C51 /* DRTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTableViewManager.m; sourceTree = "<group>"; };
 		3182D6821AA4BC6B007F2C51 /* DRTableViewSectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTableViewSectionsController.h; sourceTree = "<group>"; };
 		3182D6831AA4BC85007F2C51 /* DRTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTableViewSection.h; sourceTree = "<group>"; };
 		3182D6841AA4BC91007F2C51 /* DRTableViewRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTableViewRow.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 		3182D67E1AA4B8C7007F2C51 /* DRTableViewManager */ = {
 			isa = PBXGroup;
 			children = (
+				3182D67F1AA4BA39007F2C51 /* DRTableViewManager.h */,
+				3182D6801AA4BA39007F2C51 /* DRTableViewManager.m */,
 				3182D6841AA4BC91007F2C51 /* DRTableViewRow.h */,
 				3182D6831AA4BC85007F2C51 /* DRTableViewSection.h */,
 				3182D6821AA4BC6B007F2C51 /* DRTableViewSectionsController.h */,
@@ -260,6 +265,7 @@
 				3182D65E1AA4B766007F2C51 /* ViewController.m in Sources */,
 				3182D65B1AA4B766007F2C51 /* AppDelegate.m in Sources */,
 				3182D6581AA4B766007F2C51 /* main.m in Sources */,
+				3182D6811AA4BA39007F2C51 /* DRTableViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
