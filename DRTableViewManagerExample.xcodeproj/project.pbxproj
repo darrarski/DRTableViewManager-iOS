@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3182D6581AA4B766007F2C51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6571AA4B766007F2C51 /* main.m */; };
+		3182D65B1AA4B766007F2C51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D65A1AA4B766007F2C51 /* AppDelegate.m */; };
+		3182D65E1AA4B766007F2C51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D65D1AA4B766007F2C51 /* ViewController.m */; };
+		3182D6611AA4B766007F2C51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3182D65F1AA4B766007F2C51 /* Main.storyboard */; };
+		3182D6631AA4B766007F2C51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3182D6621AA4B766007F2C51 /* Images.xcassets */; };
+		3182D6661AA4B766007F2C51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3182D6641AA4B766007F2C51 /* LaunchScreen.xib */; };
+		3182D6721AA4B766007F2C51 /* DRTableViewManagerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6711AA4B766007F2C51 /* DRTableViewManagerExampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3182D66C1AA4B766007F2C51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3182D64A1AA4B766007F2C51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3182D6511AA4B766007F2C51;
+			remoteInfo = DRTableViewManagerExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3182D6521AA4B766007F2C51 /* DRTableViewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRTableViewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3182D6561AA4B766007F2C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3182D6571AA4B766007F2C51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3182D6591AA4B766007F2C51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3182D65A1AA4B766007F2C51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3182D65C1AA4B766007F2C51 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3182D65D1AA4B766007F2C51 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3182D6601AA4B766007F2C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3182D6621AA4B766007F2C51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3182D6651AA4B766007F2C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3182D66B1AA4B766007F2C51 /* DRTableViewManagerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRTableViewManagerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3182D6701AA4B766007F2C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3182D6711AA4B766007F2C51 /* DRTableViewManagerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRTableViewManagerExampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3182D64F1AA4B766007F2C51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3182D6681AA4B766007F2C51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3182D6491AA4B766007F2C51 = {
+			isa = PBXGroup;
+			children = (
+				3182D67E1AA4B8C7007F2C51 /* DRTableViewManager */,
+				3182D6541AA4B766007F2C51 /* DRTableViewManagerExample */,
+				3182D66E1AA4B766007F2C51 /* DRTableViewManagerExampleTests */,
+				3182D6531AA4B766007F2C51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3182D6531AA4B766007F2C51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6521AA4B766007F2C51 /* DRTableViewManagerExample.app */,
+				3182D66B1AA4B766007F2C51 /* DRTableViewManagerExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3182D6541AA4B766007F2C51 /* DRTableViewManagerExample */ = {
+			isa = PBXGroup;
+			children = (
+				3182D67B1AA4B80B007F2C51 /* Application */,
+				3182D67D1AA4B82C007F2C51 /* Resources */,
+				3182D6551AA4B766007F2C51 /* Supporting Files */,
+				3182D67C1AA4B817007F2C51 /* UI */,
+			);
+			path = DRTableViewManagerExample;
+			sourceTree = "<group>";
+		};
+		3182D6551AA4B766007F2C51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6561AA4B766007F2C51 /* Info.plist */,
+				3182D6571AA4B766007F2C51 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3182D66E1AA4B766007F2C51 /* DRTableViewManagerExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6711AA4B766007F2C51 /* DRTableViewManagerExampleTests.m */,
+				3182D66F1AA4B766007F2C51 /* Supporting Files */,
+			);
+			path = DRTableViewManagerExampleTests;
+			sourceTree = "<group>";
+		};
+		3182D66F1AA4B766007F2C51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6701AA4B766007F2C51 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3182D67B1AA4B80B007F2C51 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6591AA4B766007F2C51 /* AppDelegate.h */,
+				3182D65A1AA4B766007F2C51 /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3182D67C1AA4B817007F2C51 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6641AA4B766007F2C51 /* LaunchScreen.xib */,
+				3182D65F1AA4B766007F2C51 /* Main.storyboard */,
+				3182D65C1AA4B766007F2C51 /* ViewController.h */,
+				3182D65D1AA4B766007F2C51 /* ViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3182D67D1AA4B82C007F2C51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3182D6621AA4B766007F2C51 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3182D67E1AA4B8C7007F2C51 /* DRTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DRTableViewManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3182D6511AA4B766007F2C51 /* DRTableViewManagerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3182D6751AA4B766007F2C51 /* Build configuration list for PBXNativeTarget "DRTableViewManagerExample" */;
+			buildPhases = (
+				3182D64E1AA4B766007F2C51 /* Sources */,
+				3182D64F1AA4B766007F2C51 /* Frameworks */,
+				3182D6501AA4B766007F2C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DRTableViewManagerExample;
+			productName = DRTableViewManagerExample;
+			productReference = 3182D6521AA4B766007F2C51 /* DRTableViewManagerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3182D66A1AA4B766007F2C51 /* DRTableViewManagerExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3182D6781AA4B766007F2C51 /* Build configuration list for PBXNativeTarget "DRTableViewManagerExampleTests" */;
+			buildPhases = (
+				3182D6671AA4B766007F2C51 /* Sources */,
+				3182D6681AA4B766007F2C51 /* Frameworks */,
+				3182D6691AA4B766007F2C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3182D66D1AA4B766007F2C51 /* PBXTargetDependency */,
+			);
+			name = DRTableViewManagerExampleTests;
+			productName = DRTableViewManagerExampleTests;
+			productReference = 3182D66B1AA4B766007F2C51 /* DRTableViewManagerExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3182D64A1AA4B766007F2C51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Darrarski;
+				TargetAttributes = {
+					3182D6511AA4B766007F2C51 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					3182D66A1AA4B766007F2C51 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 3182D6511AA4B766007F2C51;
+					};
+				};
+			};
+			buildConfigurationList = 3182D64D1AA4B766007F2C51 /* Build configuration list for PBXProject "DRTableViewManagerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3182D6491AA4B766007F2C51;
+			productRefGroup = 3182D6531AA4B766007F2C51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3182D6511AA4B766007F2C51 /* DRTableViewManagerExample */,
+				3182D66A1AA4B766007F2C51 /* DRTableViewManagerExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3182D6501AA4B766007F2C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3182D6611AA4B766007F2C51 /* Main.storyboard in Resources */,
+				3182D6661AA4B766007F2C51 /* LaunchScreen.xib in Resources */,
+				3182D6631AA4B766007F2C51 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3182D6691AA4B766007F2C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3182D64E1AA4B766007F2C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3182D65E1AA4B766007F2C51 /* ViewController.m in Sources */,
+				3182D65B1AA4B766007F2C51 /* AppDelegate.m in Sources */,
+				3182D6581AA4B766007F2C51 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3182D6671AA4B766007F2C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3182D6721AA4B766007F2C51 /* DRTableViewManagerExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3182D66D1AA4B766007F2C51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3182D6511AA4B766007F2C51 /* DRTableViewManagerExample */;
+			targetProxy = 3182D66C1AA4B766007F2C51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3182D65F1AA4B766007F2C51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3182D6601AA4B766007F2C51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3182D6641AA4B766007F2C51 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3182D6651AA4B766007F2C51 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3182D6731AA4B766007F2C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3182D6741AA4B766007F2C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3182D6761AA4B766007F2C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "DRTableViewManagerExample/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3182D6771AA4B766007F2C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "DRTableViewManagerExample/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3182D6791AA4B766007F2C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRTableViewManagerExampleTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DRTableViewManagerExample.app/DRTableViewManagerExample";
+			};
+			name = Debug;
+		};
+		3182D67A1AA4B766007F2C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRTableViewManagerExampleTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DRTableViewManagerExample.app/DRTableViewManagerExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3182D64D1AA4B766007F2C51 /* Build configuration list for PBXProject "DRTableViewManagerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3182D6731AA4B766007F2C51 /* Debug */,
+				3182D6741AA4B766007F2C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3182D6751AA4B766007F2C51 /* Build configuration list for PBXNativeTarget "DRTableViewManagerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3182D6761AA4B766007F2C51 /* Debug */,
+				3182D6771AA4B766007F2C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3182D6781AA4B766007F2C51 /* Build configuration list for PBXNativeTarget "DRTableViewManagerExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3182D6791AA4B766007F2C51 /* Debug */,
+				3182D67A1AA4B766007F2C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3182D64A1AA4B766007F2C51 /* Project object */;
+}
