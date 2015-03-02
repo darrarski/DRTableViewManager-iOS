@@ -24,7 +24,6 @@
 {
     [super viewDidLoad];
     
-    self.title = @"DRTableViewManagerExample";
     [self.tableViewManager registerInTableView:self.tableView];
 }
 
