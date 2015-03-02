@@ -124,7 +124,7 @@
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:sourceIndexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:sourceIndexPath.row];
     if ([row respondsToSelector:@selector(moveToIndexPath:)]) {
-        return [row moveToIndexPath:destinationIndexPath];
+        [row moveToIndexPath:destinationIndexPath];
     }
 }
 
