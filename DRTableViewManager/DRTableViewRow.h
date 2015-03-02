@@ -12,7 +12,7 @@
 
 @required
 
-- (UITableViewCell *)cell;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 

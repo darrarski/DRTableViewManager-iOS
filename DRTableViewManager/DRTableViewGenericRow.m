@@ -132,9 +132,9 @@
 
 #pragma mark - DRTableViewRow
 
-- (UITableViewCell *)cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _cellBlock();
+    return _tableViewCellForIndexPathBlock(tableView, indexPath);
 }
 
 - (CGFloat)height

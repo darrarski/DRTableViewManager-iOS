@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[self.sectionsController sectionAtIndex:indexPath.section] rowAtIndex:indexPath.row] cell];
+    return [[[self.sectionsController sectionAtIndex:indexPath.section] rowAtIndex:indexPath.row] tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

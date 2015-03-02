@@ -11,7 +11,7 @@
 
 @interface DRTableViewGenericRow : NSObject <DRTableViewRow>
 
-@property (nonatomic, copy) UITableViewCell *(^cellBlock)();
+@property (nonatomic, copy) UITableViewCell *(^tableViewCellForIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) CGFloat (^heightBlock)();
 @property (nonatomic, copy) CGFloat (^estimatedHeightBlock)();
 @property (nonatomic, copy) void (^accessoryButtonTappedBlock)();
