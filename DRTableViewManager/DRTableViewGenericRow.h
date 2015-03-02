@@ -20,7 +20,6 @@
 @property (nonatomic, copy) void (^tableViewDidEndDisplayingCellForRowAtIndexPathBlock)(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath);
 @property (nonatomic, copy) CGFloat (^tableViewHeightForRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) CGFloat (^tableViewEstimatedHeightForRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
-@property (nonatomic, copy) UITableViewCellAccessoryType (^tableViewAccessoryTypeForRowWithIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^tableViewAccessoryButtonTappedForRowWithIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) BOOL (^tableViewShouldHighlightRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^tableViewDidHighlightRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);

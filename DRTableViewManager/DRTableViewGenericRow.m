@@ -177,11 +177,6 @@
     return _tableViewEstimatedHeightForRowAtIndexPathBlock(tableView, indexPath);
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    return _tableViewAccessoryTypeForRowWithIndexPathBlock(tableView, indexPath);
-}
-
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     _tableViewAccessoryButtonTappedForRowWithIndexPathBlock(tableView, indexPath);
