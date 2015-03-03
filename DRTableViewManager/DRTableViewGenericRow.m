@@ -134,7 +134,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _tableViewCellForIndexPathBlock(tableView, indexPath);
+    return _tableViewCellForRowAtIndexPathBlock(tableView, indexPath);
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

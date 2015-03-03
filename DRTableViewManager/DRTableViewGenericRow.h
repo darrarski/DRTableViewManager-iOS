@@ -11,7 +11,7 @@
 
 @interface DRTableViewGenericRow : NSObject <DRTableViewRow>
 
-@property (nonatomic, copy) UITableViewCell *(^tableViewCellForIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
+@property (nonatomic, copy) UITableViewCell *(^tableViewCellForRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) BOOL (^tableViewCanEditRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) BOOL (^tableViewCanMoveRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^tableViewCommitEditingStyleForRowAtIndexPathBlock)(UITableView *tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath *indexPath);
