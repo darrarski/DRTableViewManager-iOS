@@ -39,10 +39,10 @@ sectionsController.sectionAtIndexBlock = ^NSObject <DRTableViewSection> *(NSInte
         section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger tableSectionIndex) {
             return 30;
         };
-        section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableSection) {
+        section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableSectionIndex) {
             return 3;
         };
-        section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
+        section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
             return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                 row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
                     return 44;
