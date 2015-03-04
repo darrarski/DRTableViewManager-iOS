@@ -24,6 +24,40 @@ You can also download zip archive of given release from [releases page](https://
 
 Check out included example project.
 
+### TL;DR
+
+    DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
+    sectionsController.sectionsCountBlock = ^NSInteger {
+        return 3;
+    };
+    sectionsController.sectionAtIndexBlock = ^NSObject <DRTableViewSection> *(NSInteger sectionIndex) {
+        return [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
+            section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger tableSectionIndex) {
+                return [NSString stringWithFormat:@"Section %ld", (long)tableSectionIndex];
+            };
+            section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger tableSectionIndex) {
+                return 30;
+            };
+            section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableSection) {
+                return 3;
+            };
+            section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
+                return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
+                        return 44;
+                    };
+                    row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+                        UITableViewCell *cell = [[UITableViewCell alloc] init]; 
+                        cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", (long)indexPath.row];
+                        return cell;
+                    };
+                }];
+            };
+        }];
+    };
+    _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:sectionsController];
+    [_tableViewManager registerInTableView:self.tableView];
+
 ## License
 
 The MIT License (MIT) - check out included [LICENSE](LICENSE) file
