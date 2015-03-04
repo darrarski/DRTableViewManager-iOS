@@ -1,4 +1,4 @@
-# DRTableViewManager
+# DRTableViewManager (iOS)
 
 Simple wrapper around `UITableViewDataSource` and `UITableViewDelegate` protocols that allows easy `UITableView` content configuration using blocks or custom objects representing sections and rows.
 
