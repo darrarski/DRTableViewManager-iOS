@@ -2,6 +2,8 @@
 
 Simple wrapper around `UITableViewDataSource` and `UITableViewDelegate` protocols that allows easy `UITableView` content configuration using blocks or custom objects representing sections and rows.
 
+![DRTableViewManager graph](Misc/graph.png "DRTableViewManager graph")
+
 ## Instalation
 
 You can integrate `DRTableViewManager` with your project using Cocoapods. To do so, you will need to add one of the following lines to your Podfile:
