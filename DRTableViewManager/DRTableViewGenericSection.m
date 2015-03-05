@@ -17,10 +17,10 @@
     return section;
 }
 
-- (NSArray<DRTableViewRow> *)rowsArray
+- (NSArray *)rowsArray
 {
     if (_rowsArray == nil) {
-        _rowsArray = (NSArray<DRTableViewRow> *)@[];
+        _rowsArray = @[];
     }
     
     return _rowsArray;
@@ -96,7 +96,7 @@
         return _rowAtIndexBlock(index);
     }
 
-    return [self.rowsArray objectAtIndex:index];
+    return self.rowsArray[(NSUInteger)index];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

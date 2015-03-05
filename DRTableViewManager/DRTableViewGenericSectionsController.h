@@ -16,6 +16,6 @@
 @property (nonatomic, copy) NSArray *(^sectionIndexTitlesForTableViewBlock)(UITableView *tableView);
 @property (nonatomic, copy) NSInteger (^tableViewSectionForSectionIndexTitleAtIndexBlock)(UITableView *tableView, NSString *title, NSInteger index);
 
-@property (nonatomic, strong) NSArray<DRTableViewSection> *sectionsArray;
+@property (nonatomic, strong) NSArray *sectionsArray;
 
 @end

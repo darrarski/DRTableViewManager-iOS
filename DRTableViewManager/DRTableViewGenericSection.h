@@ -27,7 +27,7 @@
 @property (nonatomic, copy) void (^tableViewDidEndDisplayingHeaderViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
 @property (nonatomic, copy) void (^tableViewDidEndDisplayingFooterViewForSectionBlock)(UITableView *tableView, UIView *view, NSInteger section);
 
-@property (nonatomic, strong) NSArray<DRTableViewRow> *rowsArray;
+@property (nonatomic, strong) NSArray *rowsArray;
 
 + (instancetype)createWithBlock:(void (^)(DRTableViewGenericSection *section))block;
 

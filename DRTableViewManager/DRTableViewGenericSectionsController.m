@@ -10,10 +10,10 @@
 
 @implementation DRTableViewGenericSectionsController
 
-- (NSArray<DRTableViewSection> *)sectionsArray
+- (NSArray *)sectionsArray
 {
     if (_sectionsArray == nil) {
-        _sectionsArray = (NSArray<DRTableViewSection> *)@[];
+        _sectionsArray = (NSArray *)@[];
     }
     return _sectionsArray;
 }
@@ -48,7 +48,7 @@
         return _sectionAtIndexBlock(index);
     }
 
-    return [self.sectionsArray objectAtIndex:index];
+    return self.sectionsArray[(NSUInteger)index];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView

@@ -32,7 +32,7 @@
 {
     if (_tableViewManager == nil) {
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
-        sectionsController.sectionsArray = (NSArray<DRTableViewSection> *)@[
+        sectionsController.sectionsArray = @[
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 1";
@@ -43,7 +43,7 @@
                 section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
                     return 30;
                 };
-                section.rowsArray = (NSArray<DRTableViewRow> *)@[
+                section.rowsArray = @[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -77,7 +77,7 @@
                 section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
                     return 30;
                 };
-                section.rowsArray = (NSArray<DRTableViewRow> *)@[
+                section.rowsArray = @[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
