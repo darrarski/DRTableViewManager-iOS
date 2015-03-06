@@ -184,8 +184,8 @@
 {
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
-    if ([row respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)]) {
-        return [row tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+    if ([row respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        return [row tableView:tableView heightForRowAtIndexPath:indexPath];
     }
     
     return tableView.rowHeight;
