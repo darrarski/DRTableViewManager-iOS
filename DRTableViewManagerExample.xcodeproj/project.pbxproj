@@ -18,6 +18,9 @@
 		3182D68D1AA4DA6F007F2C51 /* DRTableViewGenericRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D68C1AA4DA6F007F2C51 /* DRTableViewGenericRow.m */; };
 		3182D6901AA4EAD0007F2C51 /* DRTableViewGenericSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D68F1AA4EAD0007F2C51 /* DRTableViewGenericSection.m */; };
 		3182D6931AA4F603007F2C51 /* DRTableViewGenericSectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6921AA4F603007F2C51 /* DRTableViewGenericSectionsController.m */; };
+		31EF33441AAA4F1F007E95BC /* Example2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33431AAA4F1F007E95BC /* Example2ViewController.m */; };
+		31EF33491AAA5110007E95BC /* Example2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33481AAA5110007E95BC /* Example2TableViewCell.m */; };
+		31EF334B1AAA55F7007E95BC /* Example2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		3182D68F1AA4EAD0007F2C51 /* DRTableViewGenericSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTableViewGenericSection.m; sourceTree = "<group>"; };
 		3182D6911AA4F603007F2C51 /* DRTableViewGenericSectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTableViewGenericSectionsController.h; sourceTree = "<group>"; };
 		3182D6921AA4F603007F2C51 /* DRTableViewGenericSectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTableViewGenericSectionsController.m; sourceTree = "<group>"; };
+		31EF33421AAA4F1F007E95BC /* Example2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example2ViewController.h; sourceTree = "<group>"; };
+		31EF33431AAA4F1F007E95BC /* Example2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2ViewController.m; sourceTree = "<group>"; };
+		31EF33471AAA5110007E95BC /* Example2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example2TableViewCell.h; sourceTree = "<group>"; };
+		31EF33481AAA5110007E95BC /* Example2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2TableViewCell.m; sourceTree = "<group>"; };
+		31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Example2TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +151,8 @@
 		3182D67C1AA4B817007F2C51 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3182D65C1AA4B766007F2C51 /* Example1ViewController.h */,
-				3182D65D1AA4B766007F2C51 /* Example1ViewController.m */,
+				31EF33461AAA50CF007E95BC /* Example 1 */,
+				31EF33451AAA50A3007E95BC /* Example 2 */,
 				3182D6641AA4B766007F2C51 /* LaunchScreen.xib */,
 				3182D65F1AA4B766007F2C51 /* Main.storyboard */,
 			);
@@ -175,6 +183,27 @@
 				3182D6821AA4BC6B007F2C51 /* DRTableViewSectionsController.h */,
 			);
 			path = DRTableViewManager;
+			sourceTree = "<group>";
+		};
+		31EF33451AAA50A3007E95BC /* Example 2 */ = {
+			isa = PBXGroup;
+			children = (
+				31EF33471AAA5110007E95BC /* Example2TableViewCell.h */,
+				31EF33481AAA5110007E95BC /* Example2TableViewCell.m */,
+				31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */,
+				31EF33421AAA4F1F007E95BC /* Example2ViewController.h */,
+				31EF33431AAA4F1F007E95BC /* Example2ViewController.m */,
+			);
+			path = "Example 2";
+			sourceTree = "<group>";
+		};
+		31EF33461AAA50CF007E95BC /* Example 1 */ = {
+			isa = PBXGroup;
+			children = (
+				3182D65C1AA4B766007F2C51 /* Example1ViewController.h */,
+				3182D65D1AA4B766007F2C51 /* Example1ViewController.m */,
+			);
+			path = "Example 1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +289,7 @@
 				3182D6611AA4B766007F2C51 /* Main.storyboard in Resources */,
 				3182D6661AA4B766007F2C51 /* LaunchScreen.xib in Resources */,
 				3182D6631AA4B766007F2C51 /* Images.xcassets in Resources */,
+				31EF334B1AAA55F7007E95BC /* Example2TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EF33441AAA4F1F007E95BC /* Example2ViewController.m in Sources */,
+				31EF33491AAA5110007E95BC /* Example2TableViewCell.m in Sources */,
 				3182D65E1AA4B766007F2C51 /* Example1ViewController.m in Sources */,
 				3182D6901AA4EAD0007F2C51 /* DRTableViewGenericSection.m in Sources */,
 				3182D65B1AA4B766007F2C51 /* AppDelegate.m in Sources */,

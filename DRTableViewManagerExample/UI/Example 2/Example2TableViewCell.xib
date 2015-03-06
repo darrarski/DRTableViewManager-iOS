@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kIe-ew-SSJ" customClass="Example2TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kIe-ew-SSJ" id="QQc-KS-wOL">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx6-sO-IBX">
+                        <rect key="frame" x="8" y="8" width="304" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dx6-sO-IBX" firstAttribute="leading" secondItem="QQc-KS-wOL" secondAttribute="leading" constant="8" id="4pB-Bu-t6k"/>
+                    <constraint firstAttribute="bottom" secondItem="dx6-sO-IBX" secondAttribute="bottom" constant="8" id="OBS-yk-8dQ"/>
+                    <constraint firstAttribute="trailing" secondItem="dx6-sO-IBX" secondAttribute="trailing" constant="8" id="hu3-p9-6tE"/>
+                    <constraint firstItem="dx6-sO-IBX" firstAttribute="top" secondItem="QQc-KS-wOL" secondAttribute="top" constant="8" id="u6X-1J-JgG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="exampleLabel" destination="dx6-sO-IBX" id="pJe-2p-i7a"/>
+            </connections>
+            <point key="canvasLocation" x="741" y="393"/>
+        </tableViewCell>
+    </objects>
+</document>

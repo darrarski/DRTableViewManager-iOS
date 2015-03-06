@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lq0-Ag-JkV">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -37,7 +38,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F47-9p-ARk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1138" y="464"/>
+            <point key="canvasLocation" x="1174" y="464"/>
+        </scene>
+        <!--Example 2-->
+        <scene sceneID="4E2-zq-5BL">
+            <objects>
+                <tableViewController id="3PS-sE-B40" customClass="Example2ViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4PW-SU-hQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="3PS-sE-B40" id="Lfd-TP-IZK"/>
+                            <outlet property="delegate" destination="3PS-sE-B40" id="tSB-ye-JKJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Example 2" id="4g5-4K-aGT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XC-Bb-IaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="1270"/>
         </scene>
         <!--DRTableViewManagerExample-->
         <scene sceneID="Hns-RX-yJt">
@@ -65,6 +85,23 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Bn3-RA-uso" kind="show" id="Ooi-sq-FD7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="mPv-RZ-ZkA" style="IBUITableViewCellStyleDefault" id="pll-I2-gIw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pll-I2-gIw" id="fmG-KN-bQE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Example 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mPv-RZ-ZkA">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3PS-sE-B40" kind="show" id="m2n-UJ-Vae"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
