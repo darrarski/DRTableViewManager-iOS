@@ -7,42 +7,22 @@
 //
 
 #import "Example2TableViewCell.h"
+#import "Example2Label.h"
 
 @implementation Example2TableViewCell
 
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
     self.exampleLabel.text = nil;
 }
 
-- (void)layoutIfNeeded
-{
-    [super layoutIfNeeded];
-    [self updateLabelPrefferedLayoutWidthIfNeeded];
-}
-
-- (void)updateLabelPrefferedLayoutWidthIfNeeded
-{
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
-        if (self.exampleLabel.preferredMaxLayoutWidth != self.exampleLabel.bounds.size.width) {
-            self.exampleLabel.preferredMaxLayoutWidth = self.exampleLabel.bounds.size.width;
-            [super setNeedsLayout];
-            [super layoutIfNeeded];
-        }
-    }
-}
-
-- (UILabel *)exampleLabel
+- (Example2Label *)exampleLabel
 {
     if (_exampleLabel == nil) {
-        UILabel *label = [[UILabel alloc] init];
+        Example2Label *label = [[Example2Label alloc] init];
         [label setTranslatesAutoresizingMaskIntoConstraints:NO];
         label.numberOfLines = 0;
-        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
-            label.preferredMaxLayoutWidth = 0;
-        }
         [self.contentView addSubview:label];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(8)-[label]-(8)-|"

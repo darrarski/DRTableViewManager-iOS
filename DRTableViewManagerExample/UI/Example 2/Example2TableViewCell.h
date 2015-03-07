@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Example2Label;
+
 @interface Example2TableViewCell : UITableViewCell
 
-@property (weak, nonatomic) UILabel *exampleLabel;
+@property (weak, nonatomic) Example2Label *exampleLabel;
 
 @end
