@@ -12,6 +12,7 @@
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
 #import "Example2TableViewCell.h"
+#import "Example2Label.h"
 
 @interface Example2ViewController ()
 
@@ -49,13 +50,20 @@
 
             row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
                 if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
-                    Example2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-                    CGRect frame = cell.frame;
-                    frame.size.width = tableView.bounds.size.width;
-                    cell.frame = frame;
+                    static Example2TableViewCell *cell = nil;
+                    static dispatch_once_t onceToken;
+                    dispatch_once(&onceToken, ^{
+                        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+                    });
                     cell = configureCellForIndexPath(cell, indexPath);
+
+                    CGRect bounds = cell.bounds;
+                    bounds.size.width = CGRectGetWidth(tableView.frame);
+                    cell.bounds = bounds;
+
                     [cell setNeedsLayout];
                     [cell layoutIfNeeded];
+
                     CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.f;
 
                     return height;
