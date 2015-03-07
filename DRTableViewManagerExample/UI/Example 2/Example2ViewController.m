@@ -49,28 +49,18 @@
             };
 
             row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
-                if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
-                    static Example2TableViewCell *cell = nil;
-                    static dispatch_once_t onceToken;
-                    dispatch_once(&onceToken, ^{
-                        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-                    });
-                    cell = configureCellForIndexPath(cell, indexPath);
+                return UITableViewAutomaticDimension;
+            };
 
-                    CGRect bounds = cell.bounds;
-                    bounds.size.width = CGRectGetWidth(tableView.frame);
-                    cell.bounds = bounds;
+            row.tableViewCellForComputingRowHeightAtIndexPath = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+                static Example2TableViewCell *cell = nil;
+                static dispatch_once_t onceToken;
+                dispatch_once(&onceToken, ^{
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+                });
+                cell = configureCellForIndexPath(cell, indexPath);
 
-                    [cell setNeedsLayout];
-                    [cell layoutIfNeeded];
-
-                    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.f;
-
-                    return height;
-                }
-                else {
-                    return UITableViewAutomaticDimension;
-                }
+                return cell;
             };
 
             row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
