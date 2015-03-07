@@ -70,6 +70,24 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 [_tableViewManager registerInTableView:self.tableView];
 ```
 
+## Changelog
+
+##### v1.0.3
+
+> Fixed - wrong method called on `DRTableViewRow` object for `tableView:heightForRowAtIndexPath:` method from `UITableViewDelegate` protocol
+
+##### v1.0.2
+
+> Fixed invalid protocol compliance definitions for arrays
+
+##### v1.0.1
+
+> Minor fixes
+
+##### v1.0.0
+
+> Inital release, supports iOS 8
+
 ## License
 
 The MIT License (MIT) - check out included [LICENSE](LICENSE) file
