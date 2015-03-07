@@ -126,6 +126,10 @@
     if (aSelector == @selector(tableView:commitEditingStyle:forRowAtIndexPath:) && _tableViewCommitEditingStyleForRowAtIndexPathBlock == nil) {
         return NO;
     }
+
+    if (aSelector == @selector(tableView:cellForComputingRowHeightAtIndexPath:) && _tableViewCellForComputingRowHeightAtIndexPath == nil) {
+        return NO;
+    }
     
     return [super respondsToSelector:aSelector];
 }
@@ -270,6 +274,11 @@
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
     _tableViewPerformActionForRowAtIndexPathWithSenderBlock(tableView, action, indexPath, sender);
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath
+{
+    return _tableViewCellForComputingRowHeightAtIndexPath(tableView, indexPath);
 }
 
 @end
