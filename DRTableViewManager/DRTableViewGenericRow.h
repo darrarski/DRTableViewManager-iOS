@@ -41,6 +41,7 @@
 @property (nonatomic, copy) BOOL (^tableViewPerformActionForRowAtIndexPathWithSenderBlock)(UITableView *tableView, SEL action, NSIndexPath *indexPath, id sender);
 
 @property (nonatomic, copy) UITableViewCell *(^tableViewCellForComputingRowHeightAtIndexPath)(UITableView * tableView, NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^tableViewConfigureCellForRowAtIndexPathBlock)(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath);
 
 + (instancetype)createWithBlock:(void (^)(DRTableViewGenericRow *row))block;
 

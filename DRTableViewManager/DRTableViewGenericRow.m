@@ -130,6 +130,10 @@
     if (aSelector == @selector(tableView:cellForComputingRowHeightAtIndexPath:) && _tableViewCellForComputingRowHeightAtIndexPath == nil) {
         return NO;
     }
+
+    if (aSelector == @selector(tableView:configureCell:forRowAtIndexPath:) && _tableViewConfigureCellForRowAtIndexPathBlock == nil) {
+        return NO;
+    }
     
     return [super respondsToSelector:aSelector];
 }
@@ -279,6 +283,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath
 {
     return _tableViewCellForComputingRowHeightAtIndexPath(tableView, indexPath);
+}
+
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _tableViewConfigureCellForRowAtIndexPathBlock(tableView, cell, indexPath);
 }
 
 @end
