@@ -76,7 +76,7 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 > Deployment target changed to iOS 7.0, `DRTableViewManager` is compatible with both iOS 7 and iOS 8.
 
-> Added Example 2 that shows how to implement automatic cell heights that works nativly on iOS 8, but also on iOS 7 with some additional code.
+> Added Example 2 that shows how to implement automatic cell heights that works natively on iOS 8, but also on iOS 7 with some additional code.
 
 ##### v1.0.3
 
