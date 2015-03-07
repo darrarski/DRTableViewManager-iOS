@@ -24,7 +24,17 @@ You can also download zip archive of given release from [releases page](https://
 
 Check out included example project.
 
+### Example 1
+
+Shows basic usage, where sections and cells are statically defined in arrays.
+
+### Example 2
+
+Shows basic usage as well, but configures automatic cell heights basing on their content. Works for both iOS 8 (using native `UITableViewAutomaticDimension`) and iOS 7 (computes height with AutoLayout - see source code for details).
+
 ### TL;DR
+
+Example usage:
 
 ```objective-c
 DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
