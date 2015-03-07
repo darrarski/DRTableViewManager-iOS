@@ -47,7 +47,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[self.sectionsController sectionAtIndex:indexPath.section] rowAtIndex:indexPath.row] tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
+    NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
+    UITableViewCell *cell = [row tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    if ([row respondsToSelector:@selector(tableView:configureCell:forRowAtIndexPath:)]) {
+        [row tableView:tableView configureCell:cell forRowAtIndexPath:indexPath];
+    }
+
+    return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -197,6 +205,10 @@
         );
 
         UITableViewCell *cell = [row tableView:tableView cellForComputingRowHeightAtIndexPath:indexPath];
+
+        if ([row respondsToSelector:@selector(tableView:configureCell:forRowAtIndexPath:)]) {
+            [row tableView:tableView configureCell:cell forRowAtIndexPath:indexPath];
+        }
 
         CGRect bounds = cell.bounds;
         bounds.size.width = CGRectGetWidth(tableView.frame);
