@@ -1,8 +1,17 @@
 # DRTableViewManager (iOS)
 
-Simple wrapper around `UITableViewDataSource` and `UITableViewDelegate` protocols that allows easy `UITableView` content configuration using blocks or custom objects representing sections and rows.
+Simple wrapper around `UITableViewDataSource` and `UITableViewDelegate` protocols that allows easy `UITableView` content configuration using blocks or custom objects representing sections and rows. 
+
+General logic behind `DRTableViewManager`:
+
+- `DRTableViewManager` - implements `UITableViewDataSource` and `UITableViewDelegate` protocols, owns `DRTableViewSectionController`
+- `DRTableViewSectionController` - defines sections (`DRTableViewSection`) for given table view
+- `DRTableViewSection` - represents table view section, defines rows (`DRTableViewRow`) for that section
+- `DRTableViewRow` - represents table view row, defines cell (`UITableViewCell`) for that row
 
 ![DRTableViewManager graph](Misc/graph.png "DRTableViewManager graph")
+
+Full `UITableViewDataSource` and `UITableViewDelegate` protocols are supported. For example, `DRTableViewSection` also defines section's header and footer (as well as their heights), and `DRTableViewRow` defines `UITableViewCell` height, didSelect action etc.
 
 ## Instalation
 
