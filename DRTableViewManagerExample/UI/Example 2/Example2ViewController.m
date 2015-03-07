@@ -34,18 +34,16 @@
 - (DRTableViewManager *)tableViewManager
 {
     if (_tableViewManager == nil) {
-        DRTableViewGenericRow *row = [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+        DRTableViewGenericRow *textRow = [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
 
-            Example2TableViewCell *(^configureCellForIndexPath)(Example2TableViewCell *, NSIndexPath *);
-            configureCellForIndexPath = ^Example2TableViewCell *(Example2TableViewCell *cell, NSIndexPath *indexPath) {
+            void (^configureCellForIndexPath)(Example2TableViewCell *, NSIndexPath *);
+            configureCellForIndexPath = ^(Example2TableViewCell *cell, NSIndexPath *indexPath) {
                 NSMutableArray *textComponents = [NSMutableArray new];
                 [textComponents addObject:[NSString stringWithFormat:@"%ld.", (long)indexPath.row+1]];
                 for (int i=0; i<=indexPath.row; i++) {
                     [textComponents addObject:@"Lorem ipsum dolor sit amet."];
                 }
                 cell.exampleLabel.text = [textComponents componentsJoinedByString:@" "];
-
-                return cell;
             };
 
             row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
@@ -58,14 +56,14 @@
                 dispatch_once(&onceToken, ^{
                     cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
                 });
-                cell = configureCellForIndexPath(cell, indexPath);
+                configureCellForIndexPath(cell, indexPath);
 
                 return cell;
             };
 
             row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                 Example2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-                cell = configureCellForIndexPath(cell, indexPath);
+                configureCellForIndexPath(cell, indexPath);
 
                 return cell;
             };
@@ -79,7 +77,7 @@
                     return 20;
                 };
                 section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
-                    return row;
+                    return textRow;
                 };
             }]
         ];
