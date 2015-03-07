@@ -36,39 +36,36 @@
     if (_tableViewManager == nil) {
         DRTableViewGenericRow *textRow = [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
 
-            void (^configureCellForIndexPath)(Example2TableViewCell *, NSIndexPath *);
-            configureCellForIndexPath = ^(Example2TableViewCell *cell, NSIndexPath *indexPath) {
-                NSMutableArray *textComponents = [NSMutableArray new];
-                [textComponents addObject:[NSString stringWithFormat:@"%ld.", (long)indexPath.row+1]];
-                for (int i=0; i<=indexPath.row; i++) {
-                    [textComponents addObject:@"Lorem ipsum dolor sit amet."];
-                }
-                cell.exampleLabel.text = [textComponents componentsJoinedByString:@" "];
+            row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+                return [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
             };
 
             row.tableViewHeightForRowAtIndexPathBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
                 return UITableViewAutomaticDimension;
             };
 
+            // Required only under iOS 7 when using UITableViewAutomaticDimension above:
             row.tableViewCellForComputingRowHeightAtIndexPath = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                 static Example2TableViewCell *cell = nil;
                 static dispatch_once_t onceToken;
                 dispatch_once(&onceToken, ^{
                     cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
                 });
-                configureCellForIndexPath(cell, indexPath);
 
                 return cell;
             };
 
-            row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                Example2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-                configureCellForIndexPath(cell, indexPath);
+            row.tableViewConfigureCellForRowAtIndexPathBlock = ^(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath) {
+                Example2TableViewCell *exampleCell = (Example2TableViewCell *)cell;
 
-                return cell;
+                NSMutableArray *textComponents = [NSMutableArray new];
+                [textComponents addObject:[NSString stringWithFormat:@"%ld.", (long)indexPath.row+1]];
+                for (int i=0; i<=indexPath.row; i++) {
+                    [textComponents addObject:@"Lorem ipsum dolor sit amet."];
+                }
+                exampleCell.exampleLabel.text = [textComponents componentsJoinedByString:@" "];
             };
         }];
-
 
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         sectionsController.sectionsArray = @[
