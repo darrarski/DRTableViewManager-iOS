@@ -72,6 +72,14 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.5
+
+> Added `tableView:cellForComputingRowHeightAtIndexPath:` method to `DRTableViewRow` protocol for supporting `UITableViewAutomaticDimension` cell height under iOS 7
+
+> Added `tableView:configureCell:forRowAtIndexPath:` to `DRTableViewRow` protocol
+
+> Examples updated
+
 ##### v1.0.4
 
 > Deployment target changed to iOS 7.0, `DRTableViewManager` is compatible with both iOS 7 and iOS 8.
