@@ -13,6 +13,8 @@ General logic behind `DRTableViewManager`:
 
 Full `UITableViewDataSource` and `UITableViewDelegate` protocols are supported. For example, `DRTableViewSection` also defines section's header and footer (as well as their heights), and `DRTableViewRow` defines `UITableViewCell` height, didSelect action etc.
 
+In addition, `DRTableViewManager` was designed to allow using `UITableViewAutomaticDimension` cell height under iOS 7. Where on iOS 8 this feature is natively supported, for iOS 7 `DRTableViewManager` will take care on computing expected cell's height using AutoLayout automatically (see Example 2 for more details).
+
 ## Instalation
 
 You can integrate `DRTableViewManager` with your project using Cocoapods. To do so, you will need to add one of the following lines to your Podfile:
