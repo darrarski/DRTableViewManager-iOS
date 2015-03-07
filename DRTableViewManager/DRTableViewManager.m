@@ -182,13 +182,33 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat height = tableView.rowHeight;
+
     NSObject<DRTableViewSection> *section = [self.sectionsController sectionAtIndex:indexPath.section];
     NSObject<DRTableViewRow> *row = [section rowAtIndex:indexPath.row];
     if ([row respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
-        return [row tableView:tableView heightForRowAtIndexPath:indexPath];
+        height = [row tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1 && height == UITableViewAutomaticDimension) {
+        NSAssert(
+            [row respondsToSelector:@selector(tableView:cellForComputingRowHeightAtIndexPath:)],
+            @"Row object should implement tableView:cellForComputingRowHeightAtIndexPath: method for usign UITableViewAutomaticDimension under iOS 7"
+        );
+
+        UITableViewCell *cell = [row tableView:tableView cellForComputingRowHeightAtIndexPath:indexPath];
+
+        CGRect bounds = cell.bounds;
+        bounds.size.width = CGRectGetWidth(tableView.frame);
+        cell.bounds = bounds;
+
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
+
+        height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.f;
     }
     
-    return tableView.rowHeight;
+    return height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
