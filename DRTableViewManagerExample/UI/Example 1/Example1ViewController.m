@@ -111,9 +111,10 @@
                 section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
                     return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+                            return [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+                        };
+                        row.tableViewConfigureCellForRowAtIndexPathBlock = ^(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath) {
                             cell.textLabel.text = [NSString stringWithFormat:@"Dynamic row (%ld.%ld)", (long)indexPath.section+1, (long)indexPath.row+1];
-                            return cell;
                         };
                     }];
                 };
