@@ -6,8 +6,8 @@ General logic behind `DRTableViewManager`:
 
 - `DRTableViewManager` - implements `UITableViewDataSource` and `UITableViewDelegate` protocols, owns `DRTableViewSectionController`
 - `DRTableViewSectionController` - defines sections (`DRTableViewSection`) for given table view
-- `DRTableViewSection` - represents table view section, defines rows (`DRTableViewRow`) for that section
-- `DRTableViewRow` - represents table view row, defines cell (`UITableViewCell`) for that row
+- `DRTableViewSection` - represents table view section; defines rows (`DRTableViewRow`) for that section; implements sections-connected part of `UITableViewDataSource` and `UITableViewDelegate` protocols
+- `DRTableViewRow` - represents table view row; defines cell (`UITableViewCell`) for that row; implements rows-connected part of `UITableViewDataSource` and `UITableViewDelegate` protocols
 
 ![DRTableViewManager graph](Misc/graph.png "DRTableViewManager graph")
 
