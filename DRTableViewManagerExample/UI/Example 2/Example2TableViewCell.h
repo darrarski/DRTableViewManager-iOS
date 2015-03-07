@@ -10,6 +10,6 @@
 
 @interface Example2TableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *exampleLabel;
+@property (weak, nonatomic) UILabel *exampleLabel;
 
 @end

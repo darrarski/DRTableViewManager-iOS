@@ -27,8 +27,7 @@
 
     [self.tableViewManager registerInTableView:self.tableView];
     self.tableView.estimatedRowHeight = 44;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Example2TableViewCell class]) bundle:nil]
-         forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[Example2TableViewCell class] forCellReuseIdentifier:@"cell"];
 }
 
 - (DRTableViewManager *)tableViewManager

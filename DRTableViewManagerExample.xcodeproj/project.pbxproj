@@ -20,7 +20,6 @@
 		3182D6931AA4F603007F2C51 /* DRTableViewGenericSectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182D6921AA4F603007F2C51 /* DRTableViewGenericSectionsController.m */; };
 		31EF33441AAA4F1F007E95BC /* Example2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33431AAA4F1F007E95BC /* Example2ViewController.m */; };
 		31EF33491AAA5110007E95BC /* Example2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33481AAA5110007E95BC /* Example2TableViewCell.m */; };
-		31EF334B1AAA55F7007E95BC /* Example2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +61,6 @@
 		31EF33431AAA4F1F007E95BC /* Example2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2ViewController.m; sourceTree = "<group>"; };
 		31EF33471AAA5110007E95BC /* Example2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example2TableViewCell.h; sourceTree = "<group>"; };
 		31EF33481AAA5110007E95BC /* Example2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2TableViewCell.m; sourceTree = "<group>"; };
-		31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Example2TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +188,6 @@
 			children = (
 				31EF33471AAA5110007E95BC /* Example2TableViewCell.h */,
 				31EF33481AAA5110007E95BC /* Example2TableViewCell.m */,
-				31EF334A1AAA55F7007E95BC /* Example2TableViewCell.xib */,
 				31EF33421AAA4F1F007E95BC /* Example2ViewController.h */,
 				31EF33431AAA4F1F007E95BC /* Example2ViewController.m */,
 			);
@@ -289,7 +286,6 @@
 				3182D6611AA4B766007F2C51 /* Main.storyboard in Resources */,
 				3182D6661AA4B766007F2C51 /* LaunchScreen.xib in Resources */,
 				3182D6631AA4B766007F2C51 /* Images.xcassets in Resources */,
-				31EF334B1AAA55F7007E95BC /* Example2TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
