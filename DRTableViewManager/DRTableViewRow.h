@@ -45,5 +45,6 @@
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender NS_AVAILABLE_IOS(5_0);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
