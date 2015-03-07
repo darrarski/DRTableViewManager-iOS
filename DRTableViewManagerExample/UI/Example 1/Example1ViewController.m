@@ -24,6 +24,11 @@
 {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = 44;
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.sectionHeaderHeight = 30;
+    self.tableView.estimatedSectionHeaderHeight = 30;
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableViewManager registerInTableView:self.tableView];
 }
@@ -36,12 +41,6 @@
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 1";
-                };
-                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
-                };
-                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
                 };
                 section.rowsArray = @[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
@@ -70,12 +69,6 @@
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 2";
-                };
-                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
-                };
-                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
                 };
                 section.rowsArray = @[
                     [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
@@ -111,12 +104,6 @@
             [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 3";
-                };
-                section.tableViewHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
-                };
-                section.tableViewEstimatedHeightForHeaderInSectionBlock = ^CGFloat(UITableView *tableView, NSInteger sectionIndex) {
-                    return 30;
                 };
                 section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger sectionIndex) {
                     return 10;
