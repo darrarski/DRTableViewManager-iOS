@@ -13,7 +13,14 @@ General logic behind `DRTableViewManager`:
 
 Full `UITableViewDataSource` and `UITableViewDelegate` protocols are supported. For example, `DRTableViewSection` also defines section's header and footer (as well as their heights), and `DRTableViewRow` defines `UITableViewCell` height, didSelect action etc.
 
-In addition, `DRTableViewManager` was designed to allow using `UITableViewAutomaticDimension` cell height under iOS 7. Where on iOS 8 this feature is natively supported, for iOS 7 `DRTableViewManager` will take care on computing expected cell's height using AutoLayout automatically (see Example 2 for more details).
+In addition, `DRTableViewManager` was designed to allow using `UITableViewAutomaticDimension` cell height on iOS 7. Behaviour for resolving automatic cell height can be configured by setting `automaticRowHeightResolvingType` property on `DRTableViewManager` object. `DRTableViewAutomaticRowHeightResolvingType` has three available options:
+
+- `DRTableViewResolveAutomaticRowHeightAutomatically` - row height will be computed by iOS automatically using `UITableViewAutomaticDimension` (available only on iOS 8).
+- `DRTableViewResolveAutomaticRowHeightManually` - row height will be computed by resolving AutoLayout on cell. It will be handled automatically by `DRTableViewManager` if `tableViewCellForComputingRowHeightAtIndexPathBlock` is set for row.
+- `DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable` _(default value)_ - `UITableViewAutomaticDimension` will be used if availabe, otherwise height will be resolved like when using `DRTableViewResolveAutomaticRowHeightManually` option.
+
+If you are using UIKit elements that requires setting `preferredMaxLayoutWidth` to layout properly, use `DRTableViewResolveAutomaticRowHeightManually` option to avoid issues on different iOS versions. See Example 2 for more details. 
+
 
 ## Instalation
 
