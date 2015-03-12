@@ -24,11 +24,9 @@
 
 - (void)updatePreferredMaxLayoutWidthIfNeeded
 {
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
-        if (self.numberOfLines == 0 && (self.bounds.size.width != self.preferredMaxLayoutWidth || self.bounds.size.width == 0)) {
-            self.preferredMaxLayoutWidth = self.bounds.size.width;
-            [self setNeedsUpdateConstraints];
-        }
+    if (self.numberOfLines == 0 && (self.bounds.size.width != self.preferredMaxLayoutWidth || self.bounds.size.width == 0)) {
+        self.preferredMaxLayoutWidth = self.bounds.size.width;
+        [self setNeedsUpdateConstraints];
     }
 }
 
