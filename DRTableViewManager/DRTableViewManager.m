@@ -19,8 +19,18 @@
 
 @implementation DRTableViewManager
 
-- (instancetype)initWithSectionsController:(NSObject <DRTableViewSectionsController> *)sectionsController {
+- (instancetype)init
+{
     self = [super init];
+    if (self) {
+        _automaticRowHeightResolvingType = DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable;
+    }
+
+    return self;
+}
+
+- (instancetype)initWithSectionsController:(NSObject <DRTableViewSectionsController> *)sectionsController {
+    self = [self init];
     if (self) {
         _sectionsController = sectionsController;
     }
@@ -31,6 +41,22 @@
 {
     tableView.dataSource = self;
     tableView.delegate = self;
+}
+
+#pragma mark - Private helpers
+
+- (BOOL)shouldComputeRowHeightManually
+{
+    switch (self.automaticRowHeightResolvingType) {
+        case DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable:
+            return floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1;
+
+        case DRTableViewResolveAutomaticRowHeightAutomatically:
+            return NO;
+            
+        case DRTableViewResolveAutomaticRowHeightManually:
+            return YES;
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -198,7 +224,7 @@
         height = [row tableView:tableView heightForRowAtIndexPath:indexPath];
     }
 
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1 && height == UITableViewAutomaticDimension) {
+    if (height == UITableViewAutomaticDimension && [self shouldComputeRowHeightManually]) {
         NSAssert(
             [row respondsToSelector:@selector(tableView:cellForComputingRowHeightAtIndexPath:)],
             @"Row object should implement tableView:cellForComputingRowHeightAtIndexPath: method for usign UITableViewAutomaticDimension under iOS 7"
