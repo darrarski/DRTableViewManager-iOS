@@ -45,7 +45,7 @@
             };
 
             // Required only under iOS 7 when using UITableViewAutomaticDimension above:
-            row.tableViewCellForComputingRowHeightAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+            row.tableViewManagerTableViewCellForComputingRowHeightAtIndexPathBlock = ^UITableViewCell *(DRTableViewManager *tableViewManager, UITableView *tableView, NSIndexPath *indexPath) {
                 static Example2TableViewCell *cell = nil;
                 static dispatch_once_t onceToken;
                 dispatch_once(&onceToken, ^{

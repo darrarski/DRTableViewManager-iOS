@@ -127,7 +127,7 @@
         return NO;
     }
 
-    if (aSelector == @selector(tableView:cellForComputingRowHeightAtIndexPath:) && _tableViewCellForComputingRowHeightAtIndexPathBlock == nil) {
+    if (aSelector == @selector(tableViewManager:tableView:cellForComputingRowHeightAtIndexPath:) && _tableViewManagerTableViewCellForComputingRowHeightAtIndexPathBlock == nil) {
         return NO;
     }
 
@@ -280,9 +280,9 @@
     _tableViewPerformActionForRowAtIndexPathWithSenderBlock(tableView, action, indexPath, sender);
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableViewManager:(DRTableViewManager *)tableViewManager tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath
 {
-    return _tableViewCellForComputingRowHeightAtIndexPathBlock(tableView, indexPath);
+    return _tableViewManagerTableViewCellForComputingRowHeightAtIndexPathBlock(tableViewManager, tableView, indexPath);
 }
 
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

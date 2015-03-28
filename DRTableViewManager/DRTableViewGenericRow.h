@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DRTableViewRow.h"
 
+@class DRTableViewManager;
+
 @interface DRTableViewGenericRow : NSObject <DRTableViewRow>
 
 @property (nonatomic, copy) UITableViewCell *(^tableViewCellForRowAtIndexPathBlock)(UITableView *tableView, NSIndexPath *indexPath);
@@ -40,7 +42,7 @@
 @property (nonatomic, copy) BOOL (^tableViewCanPerformActionForRowAtIndexPathWithSenderBlock)(UITableView *tableView, SEL action, NSIndexPath *indexPath, id sender);
 @property (nonatomic, copy) BOOL (^tableViewPerformActionForRowAtIndexPathWithSenderBlock)(UITableView *tableView, SEL action, NSIndexPath *indexPath, id sender);
 
-@property (nonatomic, copy) UITableViewCell *(^tableViewCellForComputingRowHeightAtIndexPathBlock)(UITableView * tableView, NSIndexPath *indexPath);
+@property (nonatomic, copy) UITableViewCell *(^tableViewManagerTableViewCellForComputingRowHeightAtIndexPathBlock)(DRTableViewManager *tableViewManager, UITableView * tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^tableViewConfigureCellForRowAtIndexPathBlock)(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath);
 
 + (instancetype)createWithBlock:(void (^)(DRTableViewGenericRow *row))block;

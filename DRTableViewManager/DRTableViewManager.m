@@ -226,11 +226,11 @@
 
     if (height == UITableViewAutomaticDimension && [self shouldComputeRowHeightManually]) {
         NSAssert(
-            [row respondsToSelector:@selector(tableView:cellForComputingRowHeightAtIndexPath:)],
-            @"Row object should implement tableView:cellForComputingRowHeightAtIndexPath: method for usign UITableViewAutomaticDimension under iOS 7"
+            [row respondsToSelector:@selector(tableViewManager:tableView:cellForComputingRowHeightAtIndexPath:)],
+            @"Row object should implement tableViewManager:tableView:cellForComputingRowHeightAtIndexPath: method for usign UITableViewAutomaticDimension under iOS 7"
         );
 
-        UITableViewCell *cell = [row tableView:tableView cellForComputingRowHeightAtIndexPath:indexPath];
+        UITableViewCell *cell = [row tableViewManager:self tableView:tableView cellForComputingRowHeightAtIndexPath:indexPath];
 
         if ([row respondsToSelector:@selector(tableView:configureCell:forRowAtIndexPath:)]) {
             [row tableView:tableView configureCell:cell forRowAtIndexPath:indexPath];
