@@ -90,6 +90,10 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.8
+
+> `DRTableViewGenericRow` and `DRTableViewGenericSection` initialization adjusted to common patters, builder method renamed from `createWithBlock:` to `newWithBlock:`
+
 ##### v1.0.7
 
 > Added cells cache to `DRTableViewManager`, useful for caching cells used for computing row height
