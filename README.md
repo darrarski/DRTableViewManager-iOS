@@ -90,6 +90,12 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.7
+
+> Added cells cache to `DRTableViewManager`, useful for caching cells used for computing row height
+
+> Examples updated
+
 ##### v1.0.6
 
 > Added `automaticRowHeightResolvingType` property to `DRTableViewManager`
