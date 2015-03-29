@@ -10,11 +10,18 @@
 
 @implementation DRTableViewGenericSection
 
-+ (instancetype)createWithBlock:(void (^)(DRTableViewGenericSection *section))block
++ (instancetype)newWithBlock:(void (^)(DRTableViewGenericSection *section))block
 {
-    DRTableViewGenericSection *section = [[DRTableViewGenericSection alloc] init];
-    block(section);
-    return section;
+    return [[self alloc] initWithBlock:block];
+}
+
+- (instancetype)initWithBlock:(void (^)(DRTableViewGenericSection *section))block
+{
+    self = [super init];
+    if (self) {
+        block(self);
+    }
+    return self;
 }
 
 - (NSArray *)rowsArray

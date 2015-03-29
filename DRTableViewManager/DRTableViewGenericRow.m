@@ -10,11 +10,18 @@
 
 @implementation DRTableViewGenericRow
 
-+ (instancetype)createWithBlock:(void (^)(DRTableViewGenericRow *))block
++ (instancetype)newWithBlock:(void (^)(DRTableViewGenericRow *))block
 {
-    DRTableViewGenericRow *row = [[DRTableViewGenericRow alloc] init];
-    block(row);
-    return row;
+    return [[self alloc] initWithBlock:block];
+}
+
+- (instancetype)initWithBlock:(void (^)(DRTableViewGenericRow *))block
+{
+    self = [super init];
+    if (self) {
+        block(self);
+    }
+    return self;
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector

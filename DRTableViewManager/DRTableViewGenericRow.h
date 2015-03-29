@@ -45,6 +45,6 @@
 @property (nonatomic, copy) UITableViewCell *(^tableViewManagerTableViewCellForComputingRowHeightAtIndexPathBlock)(DRTableViewManager *tableViewManager, UITableView * tableView, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^tableViewConfigureCellForRowAtIndexPathBlock)(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath);
 
-+ (instancetype)createWithBlock:(void (^)(DRTableViewGenericRow *row))block;
++ (instancetype)newWithBlock:(void (^)(DRTableViewGenericRow *))block;
 
 @end

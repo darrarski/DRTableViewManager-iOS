@@ -34,7 +34,7 @@
 - (DRTableViewManager *)tableViewManager
 {
     if (_tableViewManager == nil) {
-        DRTableViewGenericRow *textRow = [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+        DRTableViewGenericRow *textRow = [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
 
             row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                 return [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -66,7 +66,7 @@
 
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         sectionsController.sectionsArray = @[
-            [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
+            [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableViewSection) {
                     return 20;
                 };

@@ -29,6 +29,6 @@
 
 @property (nonatomic, strong) NSArray *rowsArray;
 
-+ (instancetype)createWithBlock:(void (^)(DRTableViewGenericSection *section))block;
++ (instancetype)newWithBlock:(void (^)(DRTableViewGenericSection *section))block;
 
 @end

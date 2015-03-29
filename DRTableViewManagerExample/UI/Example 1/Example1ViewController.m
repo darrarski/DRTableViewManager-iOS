@@ -38,26 +38,26 @@
     if (_tableViewManager == nil) {
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         sectionsController.sectionsArray = @[
-            [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
+            [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 1";
                 };
                 section.rowsArray = @[
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 1";
                             return cell;
                         };
                     }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 2";
                             return cell;
                         };
                     }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 3";
@@ -66,33 +66,33 @@
                     }]
                 ];
             }],
-            [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
+            [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 2";
                 };
                 section.rowsArray = @[
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 4";
                             return cell;
                         };
                     }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 5";
                             return cell;
                         };
                     }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 6";
                             return cell;
                         };
                     }],
-                    [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                             cell.textLabel.text = @"Static row 7";
@@ -101,7 +101,7 @@
                     }]
                 ];
             }],
-            [DRTableViewGenericSection createWithBlock:^(DRTableViewGenericSection *section) {
+            [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
                 section.tableViewTitleForHeaderInSectionBlock = ^NSString *(UITableView *tableView, NSInteger sectionIndex) {
                     return @"Section 3";
                 };
@@ -109,7 +109,7 @@
                     return 10;
                 };
                 section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger index) {
-                    return [DRTableViewGenericRow createWithBlock:^(DRTableViewGenericRow *row) {
+                    return [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
                         row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                             return [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                         };
