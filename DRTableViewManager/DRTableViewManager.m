@@ -14,6 +14,7 @@
 @interface DRTableViewManager ()
 
 @property (nonatomic, strong) NSObject<DRTableViewSectionsController> *sectionsController;
+@property (nonatomic, strong) NSMutableDictionary *cachedCells;
 
 @end
 
@@ -24,6 +25,7 @@
     self = [super init];
     if (self) {
         _automaticRowHeightResolvingType = DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable;
+        _cachedCells = [NSMutableDictionary new];
     }
 
     return self;
@@ -41,6 +43,16 @@
 {
     tableView.dataSource = self;
     tableView.delegate = self;
+}
+
+- (UITableViewCell *)cachedCellForKey:(NSString *)key
+{
+    return self.cachedCells[key];
+}
+
+- (void)setCachedCell:(UITableViewCell *)cell forKey:(NSString *)key
+{
+    self.cachedCells[key] = cell;
 }
 
 #pragma mark - Private helpers
