@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol DRTableViewSectionsController;
+@protocol DRTableViewSection;
+@protocol DRTableViewRow;
 
 typedef NS_ENUM(NSUInteger, DRTableViewAutomaticRowHeightResolvingType) {
     DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable,
@@ -24,5 +26,7 @@ typedef NS_ENUM(NSUInteger, DRTableViewAutomaticRowHeightResolvingType) {
 - (void)registerInTableView:(UITableView *)tableView;
 - (UITableViewCell *)cachedCellForKey:(NSString *)key;
 - (void)setCachedCell:(UITableViewCell *)cell forKey:(NSString *)key;
+- (id <DRTableViewSection>)sectionAtIndex:(NSInteger)index;
+- (id <DRTableViewRow>)rowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

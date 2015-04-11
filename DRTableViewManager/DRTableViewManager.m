@@ -55,6 +55,19 @@
     self.cachedCells[key] = cell;
 }
 
+- (id <DRTableViewSection>)sectionAtIndex:(NSInteger)index
+{
+    id <DRTableViewSection> section = [self.sectionsController sectionAtIndex:index];
+    return section;
+}
+
+- (id <DRTableViewRow>)rowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id <DRTableViewSection> section = [self sectionAtIndex:indexPath.section];
+    id <DRTableViewRow> row = [section rowAtIndex:indexPath.row];
+    return row;
+}
+
 #pragma mark - Private helpers
 
 - (BOOL)shouldComputeRowHeightManually
