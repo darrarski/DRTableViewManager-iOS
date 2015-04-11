@@ -90,6 +90,10 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.9
+
+> `DRTableViewManager` updated, added `sectionAtIndex:` and `rowAtIndexPath:` methods
+
 ##### v1.0.8
 
 > `DRTableViewGenericRow` and `DRTableViewGenericSection` initialization adjusted to common patters, builder method renamed from `createWithBlock:` to `newWithBlock:`
