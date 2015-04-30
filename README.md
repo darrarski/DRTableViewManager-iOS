@@ -90,6 +90,10 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.10
+
+> Fixed import statements in header files
+
 ##### v1.0.9
 
 > `DRTableViewManager` updated, added `sectionAtIndex:` and `rowAtIndexPath:` methods
