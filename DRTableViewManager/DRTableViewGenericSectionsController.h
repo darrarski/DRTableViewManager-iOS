@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Darrarski. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DRTableViewSectionsController.h"
 
 @interface DRTableViewGenericSectionsController : NSObject <DRTableViewSectionsController>
