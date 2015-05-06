@@ -26,7 +26,9 @@ typedef NS_ENUM(NSUInteger, DRTableViewAutomaticRowHeightResolvingType) {
 - (void)registerInTableView:(UITableView *)tableView;
 - (UITableViewCell *)cachedCellForKey:(NSString *)key;
 - (void)setCachedCell:(UITableViewCell *)cell forKey:(NSString *)key;
-- (id <DRTableViewSection>)sectionAtIndex:(NSInteger)index;
+- (id <DRTableViewSection>)sectionAtIndex:(NSInteger)sectionIndex;
+- (id <DRTableViewSection>)sectionForFooterHeaderView:(UIView *)view atIndex:(NSInteger)sectionIndex;
 - (id <DRTableViewRow>)rowAtIndexPath:(NSIndexPath *)indexPath;
+- (id <DRTableViewRow>)rowForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
