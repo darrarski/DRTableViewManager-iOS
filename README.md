@@ -90,6 +90,13 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.11
+
+> Added helper methods to `DRTableViewManager`: 
+> 
+> - `rowForCell:atIndexPath:`
+> - `sectionForFooterHeaderView:atIndex:`
+
 ##### v1.0.10
 
 > Fixed import statements in header files
