@@ -17,7 +17,7 @@ In addition, `DRTableViewManager` was designed to allow using `UITableViewAutoma
 
 - `DRTableViewResolveAutomaticRowHeightAutomatically` - row height will be computed by iOS automatically using `UITableViewAutomaticDimension` (available only on iOS 8).
 - `DRTableViewResolveAutomaticRowHeightManually` - row height will be computed by resolving AutoLayout on cell. It will be handled automatically by `DRTableViewManager` if `tableViewCellForComputingRowHeightAtIndexPathBlock` is set for row.
-- `DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable` _(default value)_ - `UITableViewAutomaticDimension` will be used if availabe, otherwise height will be resolved like when using `DRTableViewResolveAutomaticRowHeightManually` option.
+- `DRTableViewResolveAutomaticRowHeightAutomaticallyIfAvailable` (default value) - `UITableViewAutomaticDimension` will be used if availabe, otherwise height will be resolved like when using `DRTableViewResolveAutomaticRowHeightManually` option.
 
 If you are using UIKit elements that requires setting `preferredMaxLayoutWidth` to layout properly, use `DRTableViewResolveAutomaticRowHeightManually` option to avoid issues on different iOS versions. See Example 2 for more details. 
 
@@ -26,15 +26,17 @@ If you are using UIKit elements that requires setting `preferredMaxLayoutWidth` 
 
 You can integrate `DRTableViewManager` with your project using Cocoapods. To do so, you will need to add one of the following lines to your Podfile:
 
-For most recent or development version:
+For stable release (recommended):
 
-    pod 'DRTableViewManager', :git => 'https://github.com/darrarski/DRTableViewManager-iOS.git'
+    pod 'DRTableViewManager', '~> 1.0.11'
 
-For specific version:
+Which creates dependecy for version `>= 1.0.11` and `< 1.1`
+
+For most recent or exact development version (not recommended on production):
 
     pod 'DRTableViewManager', :git => 'https://github.com/darrarski/DRTableViewManager-iOS.git', :tag => 'VERSION_TAG'
 
-Where `VERSION_TAG` you should put tag name for given version (ex. "v1.0.0"). It is recommended to set version explicity instead of using most recent version, as backward compatibility is not warranted.
+Where `VERSION_TAG` you should put tag name for given version (ex. "v1.0.11"). It is recommended to set version explicity instead of using most recent version, as backward compatibility is not warranted.
 
 You can also download zip archive of given release from [releases page](https://github.com/darrarski/DRTableViewManager-iOS/releases).
 
