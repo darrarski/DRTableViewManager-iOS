@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/darrarski/DRTableViewManager-iOS'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Dariusz Rybicki' => 'darrarski@gmail.com' }
-  s.source       = { :git => 'https://github.com/darrarski/DRTableViewManager-iOS', :tag => 'v1.0.10' }
+  s.source       = { :git => 'https://github.com/darrarski/DRTableViewManager-iOS.git', :tag => 'v1.0.10' }
   s.platform     = :ios
   s.ios.deployment_target = "7.0"
   s.source_files = 'DRTableViewManager'
