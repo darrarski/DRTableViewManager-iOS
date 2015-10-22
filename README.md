@@ -92,6 +92,10 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 
 ## Changelog
 
+##### v1.0.12
+
+> Added `scrollViewDelegate` (`<UIScrollViewDelegate>`) property to `DRTableViewManager`
+
 ##### v1.0.11
 
 > Added helper methods to `DRTableViewManager`: 
