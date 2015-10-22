@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, DRTableViewAutomaticRowHeightResolvingType) {
 @interface DRTableViewManager : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, assign) DRTableViewAutomaticRowHeightResolvingType automaticRowHeightResolvingType;
+@property (nonatomic, weak) id <UIScrollViewDelegate> scrollViewDelegate;
 
 - (instancetype)initWithSectionsController:(NSObject<DRTableViewSectionsController> *)sectionsController;
 - (void)registerInTableView:(UITableView *)tableView;
