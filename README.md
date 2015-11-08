@@ -1,5 +1,7 @@
 # DRTableViewManager (iOS)
 
+> Object-oriented UITableViewDataSource and UITableViewDelegate protocols proxy
+
 Simple wrapper around `UITableViewDataSource` and `UITableViewDelegate` protocols that allows easy `UITableView` content configuration using blocks or custom objects representing sections and rows. 
 
 General logic behind `DRTableViewManager`:
@@ -42,7 +44,7 @@ You can also download zip archive of given release from [releases page](https://
 
 ## Usage
 
-Check out included example project.
+Check out included example project or `TableViewDemo` in its own [reposotory](https://github.com/darrarski/TableViewDemo).
 
 ### Example 1
 
@@ -91,6 +93,10 @@ _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:secti
 ```
 
 ## Changelog
+
+##### v1.0.13
+
+> Fixed issue with manually computed row height on iOS 9
 
 ##### v1.0.12
 
