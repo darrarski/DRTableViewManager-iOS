@@ -30,15 +30,9 @@ You can integrate `DRTableViewManager` with your project using Cocoapods. To do 
 
 For stable release (recommended):
 
-    pod 'DRTableViewManager', '~> 1.0.11'
+    pod 'DRTableViewManager', '~> 1.0.13'
 
-Which creates dependecy for version `>= 1.0.11` and `< 1.1`
-
-For most recent or exact development version (not recommended on production):
-
-    pod 'DRTableViewManager', :git => 'https://github.com/darrarski/DRTableViewManager-iOS.git', :tag => 'VERSION_TAG'
-
-Where `VERSION_TAG` you should put tag name for given version (ex. "v1.0.11"). It is recommended to set version explicity instead of using most recent version, as backward compatibility is not warranted.
+Which creates dependecy for version `>= 1.0.13` and `< 1.1`
 
 You can also download zip archive of given release from [releases page](https://github.com/darrarski/DRTableViewManager-iOS/releases).
 
