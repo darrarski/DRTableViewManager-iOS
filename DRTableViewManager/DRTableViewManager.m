@@ -247,6 +247,8 @@
         );
 
         UITableViewCell *cell = [row tableViewManager:self tableView:tableView cellForComputingRowHeightAtIndexPath:indexPath];
+        cell.translatesAutoresizingMaskIntoConstraints = NO;
+        cell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 
         if ([row respondsToSelector:@selector(tableView:configureCell:forRowAtIndexPath:)]) {
             [row tableView:tableView configureCell:cell forRowAtIndexPath:indexPath];
