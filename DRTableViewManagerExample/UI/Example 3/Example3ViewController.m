@@ -23,10 +23,9 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(sortButtonAction)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                           target:self
+                                                                                           action:@selector(openMenu)];
 
     self.viewModel = [[Example3ViewModel alloc] init];
 
@@ -71,13 +70,13 @@
     return _tableViewManager;
 }
 
-- (void)sortButtonAction
+- (void)openMenu
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Sort"
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                          destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Alphabetically", @"By length", @"Random order", nil];
+                                              otherButtonTitles:@"Shuffle", nil];
     [sheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
 }
 
@@ -85,17 +84,16 @@
 {
     switch (buttonIndex) {
         case 0:
-            [self.viewModel sortWordsAlphabetically];
-            break;
-        case 1:
-            [self.viewModel sortWordsByLength];
-            break;
-        case 2:
-            [self.viewModel randomizeWordsOrder];
+            [self shuffleObjects];
             break;
         default:
             break;
     }
+}
+
+- (void)shuffleObjects
+{
+    
 }
 
 @end
