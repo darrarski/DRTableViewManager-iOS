@@ -47,7 +47,7 @@
             };
             __weak typeof(self) welf = self;
             row.tableViewConfigureCellForRowAtIndexPathBlock = ^(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath) {
-                NSString *word = welf.words.objects[(NSUInteger) indexPath.row];
+                NSString *word = [welf.words objectAtIndex:(NSUInteger) indexPath.row];
                 cell.textLabel.text = word;
             };
         }];
@@ -55,7 +55,7 @@
         NSObject <DRTableViewSection> *wordsSection = [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
             __weak typeof(self) welf = self;
             section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableViewSection) {
-                return welf.words.objects.count;
+                return welf.words.objectsCount;
             };
             section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
                 return wordRow;
