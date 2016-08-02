@@ -11,13 +11,6 @@
 - (NSUInteger)objectsCount;
 - (id)objectAtIndex:(NSUInteger)index;
 
-- (void)setObjects:(NSArray *)objects;
-- (void)insertObject:(NSObject *)object atIndex:(NSUInteger)index;
-- (void)removeObjectAtIndex:(NSUInteger)index;
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
-- (void)moveObjectAtIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2;
-- (void)exchangeObjectAtIndex:(NSUInteger)index1 withObjectAtIndex:(NSUInteger)index2;
-
 @property (nonatomic, copy) void (^willChangeObjectsBlock)();
 @property (nonatomic, copy) void (^didChangeObjectsBlock)();
 @property (nonatomic, copy) void (^didSetObjectsBlock)();
