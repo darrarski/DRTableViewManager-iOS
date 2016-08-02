@@ -70,6 +70,7 @@
 		9DA8AA50261437125D76B626 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservableMutableArray.h; sourceTree = "<group>"; };
 		9DA8AA6D631A41DED24A7214 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservableMutableArray.m; sourceTree = "<group>"; };
 		9DA8AA8489D5F91B00929728 /* Example3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3ViewController.m; sourceTree = "<group>"; };
+		9DA8ACD87A8D66AA081DC1A7 /* ObservableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservableArray.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +223,7 @@
 				9DA8A470424BE17072EE5CF7 /* Example3ViewController.h */,
 				9DA8AA6D631A41DED24A7214 /* ObservableMutableArray.m */,
 				9DA8AA50261437125D76B626 /* ObservableMutableArray.h */,
+				9DA8ACD87A8D66AA081DC1A7 /* ObservableArray.h */,
 			);
 			path = "Example 3";
 			sourceTree = "<group>";
