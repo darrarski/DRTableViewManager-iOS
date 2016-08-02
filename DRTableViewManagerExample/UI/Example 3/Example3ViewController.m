@@ -22,6 +22,11 @@
 {
     [super viewDidLoad];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:nil
+                                                                             action:nil];
+
     self.words = [NSMutableArray new];
     [self.words addObjectsFromArray:@[
         @"jat",
