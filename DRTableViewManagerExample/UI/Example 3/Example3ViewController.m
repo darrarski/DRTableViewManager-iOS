@@ -8,11 +8,12 @@
 #import "DRTableViewGenericSectionsController.h"
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
+#import "Example3ViewModel.h"
 
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
-@property (nonatomic, strong) NSMutableArray *words;
+@property (nonatomic, strong) Example3ViewModel *viewModel;
 
 @end
 
@@ -27,29 +28,7 @@
                                                                              target:self
                                                                              action:@selector(sortButtonAction)];
 
-    self.words = [NSMutableArray new];
-    [self.words addObjectsFromArray:@[
-        @"jat",
-        @"wise",
-        @"genit",
-        @"file",
-        @"straw",
-        @"cow",
-        @"sleuth",
-        @"lunes",
-        @"scan",
-        @"gyn",
-        @"luce",
-        @"weft",
-        @"bim",
-        @"moit",
-        @"wrench",
-        @"kempt",
-        @"klepht",
-        @"whiz",
-        @"prawn",
-        @"crud"
-    ]];
+    self.viewModel = [[Example3ViewModel alloc] init];
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -67,7 +46,7 @@
             };
             __weak typeof(self) welf = self;
             row.tableViewConfigureCellForRowAtIndexPathBlock = ^(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath) {
-                NSString *word = welf.words[(NSUInteger) indexPath.row];
+                NSString *word = welf.viewModel.words[(NSUInteger) indexPath.row];
                 cell.textLabel.text = word;
             };
         }];
@@ -75,7 +54,7 @@
         NSObject <DRTableViewSection> *wordsSection = [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
             __weak typeof(self) welf = self;
             section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableViewSection) {
-                return welf.words.count;
+                return welf.viewModel.words.count;
             };
             section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
                 return wordRow;
@@ -104,43 +83,16 @@
 {
     switch (buttonIndex) {
         case 0:
-            [self sortWordsAlphabetically];
+            [self.viewModel sortWordsAlphabetically];
             break;
         case 1:
-            [self sortWordsByLength];
+            [self.viewModel sortWordsByLength];
             break;
         case 2:
-            [self randomizeWordsOrder];
+            [self.viewModel randomizeWordsOrder];
             break;
         default:
             break;
-    }
-}
-
-- (void)sortWordsAlphabetically
-{
-    [self.words sortUsingComparator:^NSComparisonResult(NSString *word1, NSString *word2) {
-        return [word1 compare:word2];
-    }];
-}
-
-- (void)sortWordsByLength
-{
-    [self.words sortUsingComparator:^NSComparisonResult(NSString *word1, NSString *word2) {
-        NSNumber *length1 = @([word1 lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        NSNumber *length2 = @([word2 lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        return [length1 compare:length2];
-    }];
-}
-
-- (void)randomizeWordsOrder
-{
-    NSUInteger count = self.words.count;
-    if (count < 1) return;
-    for (NSUInteger i = 0; i < count - 1; ++i) {
-        NSUInteger remainingCount = count - i;
-        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
-        [self.words exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
 }
 
