@@ -123,7 +123,13 @@
 
 - (void)shuffleObjects
 {
-    
+    NSUInteger count = self.viewModel.objectsCount;
+    if (count < 1) return;
+    for (NSUInteger index = 0; index < count - 1; ++index) {
+        NSUInteger remainingCount = count - index;
+        NSUInteger exchangeIndex = index + arc4random_uniform((u_int32_t )remainingCount);
+        [self.viewModel exchangeObjectAtIndex:index withObjectAtIndex:exchangeIndex];
+    }
 }
 
 @end
