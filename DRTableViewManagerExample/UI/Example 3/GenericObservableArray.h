@@ -3,7 +3,6 @@
 // Copyright (c) 2016 Darrarski. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "ObservableArray.h"
 #import "ObservableMutableArray.h"
 
