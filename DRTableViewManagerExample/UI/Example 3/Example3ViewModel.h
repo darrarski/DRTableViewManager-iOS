@@ -7,7 +7,7 @@
 
 @interface Example3ViewModel : NSObject
 
-@property (nonatomic, strong, readonly) NSArray <NSString *> *words;
+@property (nonatomic, strong, readonly) NSArray *objects;
 
 
 @end

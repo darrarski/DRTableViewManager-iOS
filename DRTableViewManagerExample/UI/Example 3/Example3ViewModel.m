@@ -6,13 +6,13 @@
 #import "Example3ViewModel.h"
 
 @implementation Example3ViewModel {
-    NSMutableArray *_words;
+    NSMutableArray *_objects;
 }
 
 - (instancetype)init
 {
     if (self = [super init]) {
-        _words = [[NSMutableArray alloc] initWithArray:@[
+        _objects = [[NSMutableArray alloc] initWithArray:@[
             @"jat",
             @"wise",
             @"genit",
