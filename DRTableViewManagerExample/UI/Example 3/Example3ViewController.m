@@ -8,12 +8,12 @@
 #import "DRTableViewGenericSectionsController.h"
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
-#import "ObservableMutableArray.h"
+#import "GenericObservableArray.h"
 
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
-@property (nonatomic, strong) ObservableMutableArray *words;
+@property (nonatomic, strong) GenericObservableArray *words;
 
 @end
 
@@ -31,7 +31,7 @@
         return [NSIndexPath indexPathForRow:index inSection:0];
     };
 
-    self.words = [[ObservableMutableArray alloc] init];
+    self.words = [[GenericObservableArray alloc] init];
     __weak typeof(self) welf = self;
     self.words.willChangeObjectsBlock = ^{
         [welf.tableView beginUpdates];

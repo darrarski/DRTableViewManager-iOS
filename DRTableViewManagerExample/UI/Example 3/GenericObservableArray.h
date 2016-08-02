@@ -6,6 +6,6 @@
 #import <Foundation/Foundation.h>
 #import "ObservableArray.h"
 
-@interface ObservableMutableArray : NSObject <ObservableArray>
+@interface GenericObservableArray : NSObject <ObservableArray>
 
 @end

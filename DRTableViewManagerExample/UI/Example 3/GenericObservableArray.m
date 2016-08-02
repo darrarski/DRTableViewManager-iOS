@@ -3,9 +3,9 @@
 // Copyright (c) 2016 Darrarski. All rights reserved.
 //
 
-#import "ObservableMutableArray.h"
+#import "GenericObservableArray.h"
 
-@implementation ObservableMutableArray {
+@implementation GenericObservableArray {
     NSMutableArray *_objects;
     void (^_willChangeObjectsBlock)();
     void (^_didChangeObjectsBlock)();
