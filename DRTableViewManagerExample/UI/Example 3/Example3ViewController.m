@@ -9,7 +9,7 @@
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
 
-@interface Example3ViewController ()
+@interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 @property (nonatomic, strong) NSMutableArray *words;
@@ -24,8 +24,8 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort"
                                                                               style:UIBarButtonItemStylePlain
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                             action:@selector(sortButtonAction)];
 
     self.words = [NSMutableArray new];
     [self.words addObjectsFromArray:@[
@@ -88,6 +88,48 @@
         _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:sectionsController];
     }
     return _tableViewManager;
+}
+
+- (void)sortButtonAction
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Sort"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Alphabetically", @"By length", @"Random order", nil];
+    [sheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [self sortWordsAlphabetically];
+            break;
+        case 1:
+            [self sortWordsByLength];
+            break;
+        case 2:
+            [self randomizeWordsOrder];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)sortWordsAlphabetically
+{
+
+}
+
+- (void)sortWordsByLength
+{
+
+}
+
+- (void)randomizeWordsOrder
+{
+    
 }
 
 @end
