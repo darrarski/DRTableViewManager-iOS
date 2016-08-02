@@ -9,8 +9,5 @@
 
 @property (nonatomic, strong, readonly) NSArray <NSString *> *words;
 
-- (void)sortWordsAlphabetically;
-- (void)sortWordsByLength;
-- (void)randomizeWordsOrder;
 
 @end
