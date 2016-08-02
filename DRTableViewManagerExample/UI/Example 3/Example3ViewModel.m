@@ -108,37 +108,37 @@
 
 - (void)willChangeObjects
 {
-
+    if (self.willChangeObjectsBlock) self.willChangeObjectsBlock();
 }
 
 - (void)didChangeObjects
 {
-
+    if (self.didChangeObjectsBlock) self.didChangeObjectsBlock();
 }
 
 - (void)didSetObjects
 {
-
+    if (self.didSetObjectsBlock) self.didSetObjectsBlock();
 }
 
 - (void)didInsertObjectAtIndex:(NSUInteger)index
 {
-
+    if (self.didInsertObjectAtIndexBlock) self.didInsertObjectAtIndexBlock(index);
 }
 
 - (void)didRemoveObjectAtIndex:(NSUInteger)index
 {
-
+    if (self.didRemoveObjectAtIndexBlock) self.didRemoveObjectAtIndexBlock(index);
 }
 
 - (void)didReplaceObject:(id)replacedObject atIndex:(NSUInteger)index
 {
-
+    if (self.didReplaceObjectAtIndexBlock) self.didReplaceObjectAtIndexBlock(replacedObject, index);
 }
 
 - (void)didMoveObjectAtIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2
 {
-    
+    if (self.didMoveObjectBlock) self.didMoveObjectBlock(index1, index2);
 }
 
 @end
