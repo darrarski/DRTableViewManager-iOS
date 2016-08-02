@@ -27,7 +27,37 @@
                                                                                            target:self
                                                                                            action:@selector(openMenu)];
 
+    NSIndexPath *(^tableViewIndexPathFromObjectIndex)(NSUInteger) = ^NSIndexPath *(NSUInteger index) {
+        return [NSIndexPath indexPathForRow:index inSection:0];
+    };
+
     self.viewModel = [[Example3ViewModel alloc] init];
+    __weak typeof(self) welf = self;
+    self.viewModel.willChangeObjectsBlock = ^{
+        [welf.tableView beginUpdates];
+    };
+    self.viewModel.didChangeObjectsBlock = ^{
+        [welf.tableView endUpdates];
+    };
+    self.viewModel.didSetObjectsBlock = ^{
+        [welf.tableView reloadData];
+    };
+    self.viewModel.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
+        [welf.tableView insertRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+    };
+    self.viewModel.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
+        [welf.tableView deleteRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+    };
+    self.viewModel.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
+        [welf.tableView reloadRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+    };
+    self.viewModel.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
+        [welf.tableView moveRowAtIndexPath:tableViewIndexPathFromObjectIndex(index1)
+                               toIndexPath:tableViewIndexPathFromObjectIndex(index2)];
+    };
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
