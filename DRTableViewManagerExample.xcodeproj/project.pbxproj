@@ -67,6 +67,7 @@
 		31EF33471AAA5110007E95BC /* Example2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example2TableViewCell.h; sourceTree = "<group>"; };
 		31EF33481AAA5110007E95BC /* Example2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2TableViewCell.m; sourceTree = "<group>"; };
 		9DA8A470424BE17072EE5CF7 /* Example3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example3ViewController.h; sourceTree = "<group>"; };
+		9DA8A6EDE66FF0EA015C0662 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservableMutableArray.h; sourceTree = "<group>"; };
 		9DA8AA50261437125D76B626 /* GenericObservableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericObservableArray.h; sourceTree = "<group>"; };
 		9DA8AA6D631A41DED24A7214 /* GenericObservableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericObservableArray.m; sourceTree = "<group>"; };
 		9DA8AA8489D5F91B00929728 /* Example3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3ViewController.m; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				9DA8AA6D631A41DED24A7214 /* GenericObservableArray.m */,
 				9DA8AA50261437125D76B626 /* GenericObservableArray.h */,
 				9DA8ACD87A8D66AA081DC1A7 /* ObservableArray.h */,
+				9DA8A6EDE66FF0EA015C0662 /* ObservableMutableArray.h */,
 			);
 			path = "Example 3";
 			sourceTree = "<group>";
