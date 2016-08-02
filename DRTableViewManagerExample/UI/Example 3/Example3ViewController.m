@@ -32,6 +32,28 @@
     };
 
     self.words = [[GenericObservableArray alloc] init];
+    self.words.objects = @[
+        @"jat",
+        @"wise",
+        @"genit",
+        @"file",
+        @"straw",
+        @"cow",
+        @"sleuth",
+        @"lunes",
+        @"scan",
+        @"gyn",
+        @"luce",
+        @"weft",
+        @"bim",
+        @"moit",
+        @"wrench",
+        @"kempt",
+        @"klepht",
+        @"whiz",
+        @"prawn",
+        @"crud"
+    ];
     __weak typeof(self) welf = self;
     self.words.willChangeObjectsBlock = ^{
         [welf.tableView beginUpdates];

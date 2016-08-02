@@ -27,28 +27,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        _objects = [[NSMutableArray alloc] initWithArray:@[
-            @"jat",
-            @"wise",
-            @"genit",
-            @"file",
-            @"straw",
-            @"cow",
-            @"sleuth",
-            @"lunes",
-            @"scan",
-            @"gyn",
-            @"luce",
-            @"weft",
-            @"bim",
-            @"moit",
-            @"wrench",
-            @"kempt",
-            @"klepht",
-            @"whiz",
-            @"prawn",
-            @"crud"
-        ]];
+        _objects = [NSMutableArray new];
     }
     return self;
 }
