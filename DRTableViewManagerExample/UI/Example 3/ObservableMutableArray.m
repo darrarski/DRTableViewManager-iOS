@@ -7,7 +7,22 @@
 
 @implementation ObservableMutableArray {
     NSMutableArray *_objects;
+    void (^_willChangeObjectsBlock)();
+    void (^_didChangeObjectsBlock)();
+    void (^_didSetObjectsBlock)();
+    void (^_didInsertObjectAtIndexBlock)(NSUInteger index);
+    void (^_didRemoveObjectAtIndexBlock)(NSUInteger index);
+    void (^_didReplaceObjectAtIndexBlock)(id replacedObject, NSUInteger index);
+    void (^_didMoveObjectBlock)(NSUInteger index1, NSUInteger index2);
 }
+
+@synthesize willChangeObjectsBlock = _willChangeObjectsBlock;
+@synthesize didChangeObjectsBlock = _didChangeObjectsBlock;
+@synthesize didSetObjectsBlock = _didSetObjectsBlock;
+@synthesize didInsertObjectAtIndexBlock = _didInsertObjectAtIndexBlock;
+@synthesize didRemoveObjectAtIndexBlock = _didRemoveObjectAtIndexBlock;
+@synthesize didReplaceObjectAtIndexBlock = _didReplaceObjectAtIndexBlock;
+@synthesize didMoveObjectBlock = _didMoveObjectBlock;
 
 - (instancetype)init
 {
@@ -39,6 +54,11 @@
 }
 
 #pragma mark - Objects accessors
+
+- (NSArray *)objects
+{
+    return _objects.copy;
+}
 
 - (NSUInteger)objectsCount
 {
