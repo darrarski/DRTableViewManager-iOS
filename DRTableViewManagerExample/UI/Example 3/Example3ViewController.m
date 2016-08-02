@@ -13,7 +13,7 @@
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
-@property (nonatomic, strong) ObservableMutableArray *viewModel;
+@property (nonatomic, strong) ObservableMutableArray *words;
 
 @end
 
@@ -31,30 +31,30 @@
         return [NSIndexPath indexPathForRow:index inSection:0];
     };
 
-    self.viewModel = [[ObservableMutableArray alloc] init];
+    self.words = [[ObservableMutableArray alloc] init];
     __weak typeof(self) welf = self;
-    self.viewModel.willChangeObjectsBlock = ^{
+    self.words.willChangeObjectsBlock = ^{
         [welf.tableView beginUpdates];
     };
-    self.viewModel.didChangeObjectsBlock = ^{
+    self.words.didChangeObjectsBlock = ^{
         [welf.tableView endUpdates];
     };
-    self.viewModel.didSetObjectsBlock = ^{
+    self.words.didSetObjectsBlock = ^{
         [welf.tableView reloadData];
     };
-    self.viewModel.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
+    self.words.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
         [welf.tableView insertRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
                               withRowAnimation:UITableViewRowAnimationAutomatic];
     };
-    self.viewModel.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
+    self.words.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
         [welf.tableView deleteRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
                               withRowAnimation:UITableViewRowAnimationAutomatic];
     };
-    self.viewModel.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
+    self.words.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
         [welf.tableView reloadRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
                               withRowAnimation:UITableViewRowAnimationAutomatic];
     };
-    self.viewModel.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
+    self.words.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
         [welf.tableView moveRowAtIndexPath:tableViewIndexPathFromObjectIndex(index1)
                                toIndexPath:tableViewIndexPathFromObjectIndex(index2)];
     };
@@ -77,7 +77,7 @@
             };
             __weak typeof(self) welf = self;
             row.tableViewConfigureCellForRowAtIndexPathBlock = ^(UITableView *tableView, UITableViewCell *cell, NSIndexPath *indexPath) {
-                NSString *word = welf.viewModel.objects[(NSUInteger) indexPath.row];
+                NSString *word = welf.words.objects[(NSUInteger) indexPath.row];
                 cell.textLabel.text = word;
             };
         }];
@@ -85,7 +85,7 @@
         NSObject <DRTableViewSection> *wordsSection = [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
             __weak typeof(self) welf = self;
             section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableViewSection) {
-                return welf.viewModel.objects.count;
+                return welf.words.objects.count;
             };
             section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
                 return wordRow;
@@ -114,21 +114,21 @@
 {
     switch (buttonIndex) {
         case 0:
-            [self shuffleObjects];
+            [self shuffleWords];
             break;
         default:
             break;
     }
 }
 
-- (void)shuffleObjects
+- (void)shuffleWords
 {
-    NSUInteger count = self.viewModel.objectsCount;
+    NSUInteger count = self.words.objectsCount;
     if (count < 1) return;
     for (NSUInteger index = 0; index < count - 1; ++index) {
         NSUInteger remainingCount = count - index;
         NSUInteger exchangeIndex = index + arc4random_uniform((u_int32_t )remainingCount);
-        [self.viewModel exchangeObjectAtIndex:index withObjectAtIndex:exchangeIndex];
+        [self.words exchangeObjectAtIndex:index withObjectAtIndex:exchangeIndex];
     }
 }
 
