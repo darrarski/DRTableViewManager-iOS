@@ -59,7 +59,7 @@
 {
     if (!_tableViewManager) {
 
-        NSObject <DRTableViewRow> *row = [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
+        NSObject <DRTableViewRow> *wordRow = [DRTableViewGenericRow newWithBlock:^(DRTableViewGenericRow *row) {
             row.tableViewCellForRowAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -72,18 +72,18 @@
             };
         }];
 
-        NSObject <DRTableViewSection> *section = [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
+        NSObject <DRTableViewSection> *wordsSection = [DRTableViewGenericSection newWithBlock:^(DRTableViewGenericSection *section) {
             __weak typeof(self) welf = self;
             section.tableViewNumberOfRowsInSectionBlock = ^NSInteger(UITableView *tableView, NSInteger tableViewSection) {
                 return welf.words.count;
             };
             section.rowAtIndexBlock = ^NSObject <DRTableViewRow> *(NSInteger rowIndex) {
-                return row;
+                return wordRow;
             };
         }];
 
         DRTableViewGenericSectionsController *sectionsController = [[DRTableViewGenericSectionsController alloc] init];
-        sectionsController.sectionsArray = @[section];
+        sectionsController.sectionsArray = @[wordsSection];
 
         _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:sectionsController];
     }
