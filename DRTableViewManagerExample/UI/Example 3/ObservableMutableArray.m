@@ -3,9 +3,9 @@
 // Copyright (c) 2016 Darrarski. All rights reserved.
 //
 
-#import "Example3ViewModel.h"
+#import "ObservableMutableArray.h"
 
-@implementation Example3ViewModel {
+@implementation ObservableMutableArray {
     NSMutableArray *_objects;
 }
 

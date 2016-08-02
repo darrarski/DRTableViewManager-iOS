@@ -22,7 +22,7 @@
 		31EF33441AAA4F1F007E95BC /* Example2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33431AAA4F1F007E95BC /* Example2ViewController.m */; };
 		31EF33491AAA5110007E95BC /* Example2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF33481AAA5110007E95BC /* Example2TableViewCell.m */; };
 		9DA8A3C07B82C24363A39D70 /* Example3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AA8489D5F91B00929728 /* Example3ViewController.m */; };
-		9DA8A3D9246B3A9C2F630A8D /* Example3ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AA6D631A41DED24A7214 /* Example3ViewModel.m */; };
+		9DA8A3D9246B3A9C2F630A8D /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AA6D631A41DED24A7214 /* ObservableMutableArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,8 @@
 		31EF33471AAA5110007E95BC /* Example2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example2TableViewCell.h; sourceTree = "<group>"; };
 		31EF33481AAA5110007E95BC /* Example2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example2TableViewCell.m; sourceTree = "<group>"; };
 		9DA8A470424BE17072EE5CF7 /* Example3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example3ViewController.h; sourceTree = "<group>"; };
-		9DA8AA50261437125D76B626 /* Example3ViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example3ViewModel.h; sourceTree = "<group>"; };
-		9DA8AA6D631A41DED24A7214 /* Example3ViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3ViewModel.m; sourceTree = "<group>"; };
+		9DA8AA50261437125D76B626 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservableMutableArray.h; sourceTree = "<group>"; };
+		9DA8AA6D631A41DED24A7214 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservableMutableArray.m; sourceTree = "<group>"; };
 		9DA8AA8489D5F91B00929728 /* Example3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example3ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,8 +220,8 @@
 			children = (
 				9DA8AA8489D5F91B00929728 /* Example3ViewController.m */,
 				9DA8A470424BE17072EE5CF7 /* Example3ViewController.h */,
-				9DA8AA6D631A41DED24A7214 /* Example3ViewModel.m */,
-				9DA8AA50261437125D76B626 /* Example3ViewModel.h */,
+				9DA8AA6D631A41DED24A7214 /* ObservableMutableArray.m */,
+				9DA8AA50261437125D76B626 /* ObservableMutableArray.h */,
 			);
 			path = "Example 3";
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 				3182D6811AA4BA39007F2C51 /* DRTableViewManager.m in Sources */,
 				3182D68D1AA4DA6F007F2C51 /* DRTableViewGenericRow.m in Sources */,
 				9DA8A3C07B82C24363A39D70 /* Example3ViewController.m in Sources */,
-				9DA8A3D9246B3A9C2F630A8D /* Example3ViewModel.m in Sources */,
+				9DA8A3D9246B3A9C2F630A8D /* ObservableMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

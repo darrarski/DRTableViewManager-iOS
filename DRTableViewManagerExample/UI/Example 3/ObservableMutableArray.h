@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Example3ViewModel : NSObject
+@interface ObservableMutableArray : NSObject
 
 @property (nonatomic, strong, readonly) NSArray *objects;
 
