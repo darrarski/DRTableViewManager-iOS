@@ -13,7 +13,7 @@
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
-@property (nonatomic, strong) GenericObservableArray *words;
+@property (nonatomic, strong) NSObject <ObservableArray, ObservableMutableArray> *words;
 
 @end
 
@@ -27,65 +27,13 @@
                                                                                            target:self
                                                                                            action:@selector(openMenu)];
 
-    NSIndexPath *(^tableViewIndexPathFromObjectIndex)(NSUInteger) = ^NSIndexPath *(NSUInteger index) {
-        return [NSIndexPath indexPathForRow:index inSection:0];
-    };
-
-    self.words = [[GenericObservableArray alloc] init];
-    self.words.objects = @[
-        @"jat",
-        @"wise",
-        @"genit",
-        @"file",
-        @"straw",
-        @"cow",
-        @"sleuth",
-        @"lunes",
-        @"scan",
-        @"gyn",
-        @"luce",
-        @"weft",
-        @"bim",
-        @"moit",
-        @"wrench",
-        @"kempt",
-        @"klepht",
-        @"whiz",
-        @"prawn",
-        @"crud"
-    ];
-    __weak typeof(self) welf = self;
-    self.words.willChangeObjectsBlock = ^{
-        [welf.tableView beginUpdates];
-    };
-    self.words.didChangeObjectsBlock = ^{
-        [welf.tableView endUpdates];
-    };
-    self.words.didSetObjectsBlock = ^{
-        [welf.tableView reloadData];
-    };
-    self.words.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
-        [welf.tableView insertRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                              withRowAnimation:UITableViewRowAnimationAutomatic];
-    };
-    self.words.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
-        [welf.tableView deleteRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                              withRowAnimation:UITableViewRowAnimationAutomatic];
-    };
-    self.words.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
-        [welf.tableView reloadRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                              withRowAnimation:UITableViewRowAnimationAutomatic];
-    };
-    self.words.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
-        [welf.tableView moveRowAtIndexPath:tableViewIndexPathFromObjectIndex(index1)
-                               toIndexPath:tableViewIndexPathFromObjectIndex(index2)];
-    };
-
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.rowHeight = 44;
     self.tableView.estimatedRowHeight = 44;
 }
+
+#pragma mark - Table View
 
 - (DRTableViewManager *)tableViewManager
 {
@@ -122,6 +70,72 @@
     return _tableViewManager;
 }
 
+#pragma mark - Data
+
+- (NSObject <ObservableArray, ObservableMutableArray> *)words
+{
+    if (!_words) {
+        NSIndexPath *(^tableViewIndexPathFromObjectIndex)(NSUInteger) = ^NSIndexPath *(NSUInteger index) {
+            return [NSIndexPath indexPathForRow:index inSection:0];
+        };
+
+        GenericObservableArray *words = [[GenericObservableArray alloc] init];
+        words.objects = @[
+            @"jat",
+            @"wise",
+            @"genit",
+            @"file",
+            @"straw",
+            @"cow",
+            @"sleuth",
+            @"lunes",
+            @"scan",
+            @"gyn",
+            @"luce",
+            @"weft",
+            @"bim",
+            @"moit",
+            @"wrench",
+            @"kempt",
+            @"klepht",
+            @"whiz",
+            @"prawn",
+            @"crud"
+        ];
+        __weak typeof(self) welf = self;
+        words.willChangeObjectsBlock = ^{
+            [welf.tableView beginUpdates];
+        };
+        words.didChangeObjectsBlock = ^{
+            [welf.tableView endUpdates];
+        };
+        words.didSetObjectsBlock = ^{
+            [welf.tableView reloadData];
+        };
+        words.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
+            [welf.tableView insertRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+        };
+        words.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
+            [welf.tableView deleteRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+        };
+        words.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
+            [welf.tableView reloadRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+        };
+        words.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
+            [welf.tableView moveRowAtIndexPath:tableViewIndexPathFromObjectIndex(index1)
+                                   toIndexPath:tableViewIndexPathFromObjectIndex(index2)];
+        };
+        _words = words;
+    }
+    return _words;
+}
+
+
+#pragma mark - Actions menu
+
 - (void)openMenu
 {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
@@ -142,6 +156,8 @@
             break;
     }
 }
+
+#pragma mark - Actions
 
 - (void)shuffleWords
 {
