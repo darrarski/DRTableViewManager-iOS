@@ -32,6 +32,8 @@
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.rowHeight = 44;
+    self.tableView.estimatedRowHeight = 44;
 }
 
 - (DRTableViewManager *)tableViewManager
