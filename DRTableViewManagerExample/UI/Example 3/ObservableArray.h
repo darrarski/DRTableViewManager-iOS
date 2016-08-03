@@ -5,10 +5,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ObservableArrayObserver.h"
+#import "ObservableArrayObserversSet.h"
 
 @protocol ObservableArray <NSObject>
 
-@property (nonatomic, weak) NSObject <ObservableArrayObserver> *observer;
+@property (nonatomic, strong) ObservableArrayObserversSet *observers;
 
 - (NSArray *)objects;
 - (NSUInteger)objectsCount;
