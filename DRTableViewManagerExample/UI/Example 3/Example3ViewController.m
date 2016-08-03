@@ -10,12 +10,14 @@
 #import "DRTableViewGenericRow.h"
 #import "GenericObservableArray.h"
 #import "ObservableArrayObserversSet.h"
+#import "ObservableArrayTableViewUpdater.h"
 
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 @property (nonatomic, strong) NSObject <ObservableArray, ObservableMutableArray> *words;
 @property (nonatomic, strong) ObservableArrayObserversSet *wordsObservers;
+@property (nonatomic, strong) ObservableArrayTableViewUpdater *wordsTableViewUpdater;
 
 @end
 
@@ -29,6 +31,7 @@
                                                                                            target:self
                                                                                            action:@selector(openMenu)];
 
+    [self.wordsObservers addObserver:self.wordsTableViewUpdater];
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -113,6 +116,22 @@
         _wordsObservers = [ObservableArrayObserversSet new];
     }
     return _wordsObservers;
+}
+
+- (ObservableArrayTableViewUpdater *)wordsTableViewUpdater
+{
+    if (!_wordsTableViewUpdater) {
+        __weak typeof(self) welf = self;
+        ObservableArrayTableViewUpdaterTableViewBlock tableViewBlock = ^UITableView * {
+            return welf.tableView;
+        };
+        ObservableArrayTableViewUpdaterSectionBlock sectionBlock = ^NSUInteger {
+            return 0;
+        };
+        _wordsTableViewUpdater = [[ObservableArrayTableViewUpdater alloc] initWithTableViewBlock:tableViewBlock
+                                                                                    sectionBlock:sectionBlock];
+    }
+    return _wordsTableViewUpdater;
 }
 
 #pragma mark - Actions menu
