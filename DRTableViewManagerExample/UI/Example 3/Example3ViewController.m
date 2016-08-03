@@ -98,6 +98,7 @@
             @"prawn",
             @"crud"
         ];
+        words.observer = self;
         _words = words;
     }
     return _words;
