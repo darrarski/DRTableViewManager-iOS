@@ -9,11 +9,13 @@
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
 #import "GenericObservableArray.h"
+#import "ObservableArrayObserversSet.h"
 
 @interface Example3ViewController () <ObservableArrayObserver, UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 @property (nonatomic, strong) NSObject <ObservableArray, ObservableMutableArray> *words;
+@property (nonatomic, strong) ObservableArrayObserversSet *wordsObservers;
 
 @end
 
@@ -26,6 +28,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                            target:self
                                                                                            action:@selector(openMenu)];
+
+    [self.wordsObservers addObserver:self];
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -98,10 +102,18 @@
             @"prawn",
             @"crud"
         ];
-        words.observer = self;
+        words.observer = self.wordsObservers;
         _words = words;
     }
     return _words;
+}
+
+- (ObservableArrayObserversSet *)wordsObservers
+{
+    if (!_wordsObservers) {
+        _wordsObservers = [ObservableArrayObserversSet new];
+    }
+    return _wordsObservers;
 }
 
 #pragma mark - ObservableArrayObserver
