@@ -83,6 +83,7 @@
     [self cleanUpObservers];
     if (observer == nil) return;
     ObservableArrayObserverWeakReference *reference = [[ObservableArrayObserverWeakReference alloc] initWithObserver:observer];
+    if ([self.observerReferences containsObject:reference]) return;
     self.observerReferences = [self.observerReferences setByAddingObject:reference];
 }
 
