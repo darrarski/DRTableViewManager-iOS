@@ -7,7 +7,10 @@
 
 @implementation GenericObservableArray {
     NSMutableArray *_objects;
+    __weak NSObject <ObservableArrayObserver> *_observer;
 }
+
+@synthesize observer = _observer;
 
 - (instancetype)init
 {
