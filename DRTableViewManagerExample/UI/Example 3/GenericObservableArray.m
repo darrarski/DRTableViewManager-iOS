@@ -6,15 +6,16 @@
 #import "GenericObservableArray.h"
 
 @implementation GenericObservableArray {
+    ObservableArrayObserversSet *_observers;
     NSMutableArray *_objects;
-    __weak NSObject <ObservableArrayObserver> *_observer;
 }
 
-@synthesize observer = _observer;
+@synthesize observers = _observers;
 
 - (instancetype)init
 {
     if (self = [super init]) {
+        _observers = [ObservableArrayObserversSet new];
         _objects = [NSMutableArray new];
     }
     return self;
@@ -95,37 +96,37 @@
 
 - (void)willChangeObjects
 {
-    [self.observer willChangeObjects];
+    [self.observers willChangeObjects];
 }
 
 - (void)didChangeObjects
 {
-    [self.observer didChangeObjects];
+    [self.observers didChangeObjects];
 }
 
 - (void)didSetObjects
 {
-    [self.observer didSetObjects];
+    [self.observers didSetObjects];
 }
 
 - (void)didInsertObjectAtIndex:(NSUInteger)index
 {
-    [self.observer didInsertObjectAtIndex:index];
+    [self.observers didInsertObjectAtIndex:index];
 }
 
 - (void)didRemoveObjectAtIndex:(NSUInteger)index
 {
-    [self.observer didRemoveObjectAtIndex:index];
+    [self.observers didRemoveObjectAtIndex:index];
 }
 
 - (void)didReplaceObject:(id)replacedObject atIndex:(NSUInteger)index
 {
-    [self.observer didReplaceObject:replacedObject atIndex:index];
+    [self.observers didReplaceObject:replacedObject atIndex:index];
 }
 
 - (void)didMoveObjectAtIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2
 {
-    [self.observer didMoveObjectAtIndex:index1 toIndex:index2];
+    [self.observers didMoveObjectAtIndex:index1 toIndex:index2];
 }
 
 @end
