@@ -95,30 +95,37 @@
 
 - (void)willChangeObjects
 {
+    [self.observer willChangeObjects];
 }
 
 - (void)didChangeObjects
 {
+    [self.observer didChangeObjects];
 }
 
 - (void)didSetObjects
 {
+    [self.observer didSetObjects];
 }
 
 - (void)didInsertObjectAtIndex:(NSUInteger)index
 {
+    [self.observer didInsertObjectAtIndex:index];
 }
 
 - (void)didRemoveObjectAtIndex:(NSUInteger)index
 {
+    [self.observer didRemoveObjectAtIndex:index];
 }
 
 - (void)didReplaceObject:(id)replacedObject atIndex:(NSUInteger)index
 {
+    [self.observer didReplaceObject:replacedObject atIndex:index];
 }
 
 - (void)didMoveObjectAtIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2
 {
+    [self.observer didMoveObjectAtIndex:index1 toIndex:index2];
 }
 
 @end
