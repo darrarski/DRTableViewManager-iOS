@@ -7,22 +7,7 @@
 
 @implementation GenericObservableArray {
     NSMutableArray *_objects;
-    void (^_willChangeObjectsBlock)();
-    void (^_didChangeObjectsBlock)();
-    void (^_didSetObjectsBlock)();
-    void (^_didInsertObjectAtIndexBlock)(NSUInteger index);
-    void (^_didRemoveObjectAtIndexBlock)(NSUInteger index);
-    void (^_didReplaceObjectAtIndexBlock)(id replacedObject, NSUInteger index);
-    void (^_didMoveObjectBlock)(NSUInteger index1, NSUInteger index2);
 }
-
-@synthesize willChangeObjectsBlock = _willChangeObjectsBlock;
-@synthesize didChangeObjectsBlock = _didChangeObjectsBlock;
-@synthesize didSetObjectsBlock = _didSetObjectsBlock;
-@synthesize didInsertObjectAtIndexBlock = _didInsertObjectAtIndexBlock;
-@synthesize didRemoveObjectAtIndexBlock = _didRemoveObjectAtIndexBlock;
-@synthesize didReplaceObjectAtIndexBlock = _didReplaceObjectAtIndexBlock;
-@synthesize didMoveObjectBlock = _didMoveObjectBlock;
 
 - (instancetype)init
 {
@@ -107,37 +92,30 @@
 
 - (void)willChangeObjects
 {
-    if (self.willChangeObjectsBlock) self.willChangeObjectsBlock();
 }
 
 - (void)didChangeObjects
 {
-    if (self.didChangeObjectsBlock) self.didChangeObjectsBlock();
 }
 
 - (void)didSetObjects
 {
-    if (self.didSetObjectsBlock) self.didSetObjectsBlock();
 }
 
 - (void)didInsertObjectAtIndex:(NSUInteger)index
 {
-    if (self.didInsertObjectAtIndexBlock) self.didInsertObjectAtIndexBlock(index);
 }
 
 - (void)didRemoveObjectAtIndex:(NSUInteger)index
 {
-    if (self.didRemoveObjectAtIndexBlock) self.didRemoveObjectAtIndexBlock(index);
 }
 
 - (void)didReplaceObject:(id)replacedObject atIndex:(NSUInteger)index
 {
-    if (self.didReplaceObjectAtIndexBlock) self.didReplaceObjectAtIndexBlock(replacedObject, index);
 }
 
 - (void)didMoveObjectAtIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2
 {
-    if (self.didMoveObjectBlock) self.didMoveObjectBlock(index1, index2);
 }
 
 @end

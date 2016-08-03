@@ -11,12 +11,4 @@
 - (NSUInteger)objectsCount;
 - (id)objectAtIndex:(NSUInteger)index;
 
-@property (nonatomic, copy) void (^willChangeObjectsBlock)();
-@property (nonatomic, copy) void (^didChangeObjectsBlock)();
-@property (nonatomic, copy) void (^didSetObjectsBlock)();
-@property (nonatomic, copy) void (^didInsertObjectAtIndexBlock)(NSUInteger index);
-@property (nonatomic, copy) void (^didRemoveObjectAtIndexBlock)(NSUInteger index);
-@property (nonatomic, copy) void (^didReplaceObjectAtIndexBlock)(id replacedObject, NSUInteger index);
-@property (nonatomic, copy) void (^didMoveObjectBlock)(NSUInteger index1, NSUInteger index2);
-
 @end

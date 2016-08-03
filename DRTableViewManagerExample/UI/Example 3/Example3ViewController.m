@@ -75,10 +75,6 @@
 - (NSObject <ObservableArray, ObservableMutableArray> *)words
 {
     if (!_words) {
-        NSIndexPath *(^tableViewIndexPathFromObjectIndex)(NSUInteger) = ^NSIndexPath *(NSUInteger index) {
-            return [NSIndexPath indexPathForRow:index inSection:0];
-        };
-
         GenericObservableArray *words = [[GenericObservableArray alloc] init];
         words.objects = @[
             @"jat",
@@ -102,32 +98,6 @@
             @"prawn",
             @"crud"
         ];
-        __weak typeof(self) welf = self;
-        words.willChangeObjectsBlock = ^{
-            [welf.tableView beginUpdates];
-        };
-        words.didChangeObjectsBlock = ^{
-            [welf.tableView endUpdates];
-        };
-        words.didSetObjectsBlock = ^{
-            [welf.tableView reloadData];
-        };
-        words.didInsertObjectAtIndexBlock = ^(NSUInteger index) {
-            [welf.tableView insertRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-        };
-        words.didRemoveObjectAtIndexBlock = ^(NSUInteger index) {
-            [welf.tableView deleteRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-        };
-        words.didReplaceObjectAtIndexBlock = ^(id replacedObject, NSUInteger index) {
-            [welf.tableView reloadRowsAtIndexPaths:@[tableViewIndexPathFromObjectIndex(index)]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-        };
-        words.didMoveObjectBlock = ^(NSUInteger index1, NSUInteger index2) {
-            [welf.tableView moveRowAtIndexPath:tableViewIndexPathFromObjectIndex(index1)
-                                   toIndexPath:tableViewIndexPathFromObjectIndex(index2)];
-        };
         _words = words;
     }
     return _words;
