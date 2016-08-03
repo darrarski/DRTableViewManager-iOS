@@ -9,14 +9,12 @@
 #import "DRTableViewGenericSection.h"
 #import "DRTableViewGenericRow.h"
 #import "GenericObservableArray.h"
-#import "ObservableArrayObserversSet.h"
 #import "ObservableArrayTableViewUpdater.h"
 
 @interface Example3ViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 @property (nonatomic, strong) NSObject <ObservableArray, ObservableMutableArray> *words;
-@property (nonatomic, strong) ObservableArrayObserversSet *wordsObservers;
 @property (nonatomic, strong) ObservableArrayTableViewUpdater *wordsTableViewUpdater;
 
 @end
@@ -31,7 +29,7 @@
                                                                                            target:self
                                                                                            action:@selector(openMenu)];
 
-    [self.wordsObservers addObserver:self.wordsTableViewUpdater];
+    [self.words.observers addObserver:self.wordsTableViewUpdater];
 
     [self.tableViewManager registerInTableView:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -104,18 +102,9 @@
             @"prawn",
             @"crud"
         ];
-        words.observer = self.wordsObservers;
         _words = words;
     }
     return _words;
-}
-
-- (ObservableArrayObserversSet *)wordsObservers
-{
-    if (!_wordsObservers) {
-        _wordsObservers = [ObservableArrayObserversSet new];
-    }
-    return _wordsObservers;
 }
 
 - (ObservableArrayTableViewUpdater *)wordsTableViewUpdater
